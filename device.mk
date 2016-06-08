@@ -241,7 +241,8 @@ PRODUCT_PACKAGES += \
     hostapd.deny \
     libwpa_client \
     wcnss_service \
-    wpa_supplicant
+    wpa_supplicant \
+    wificond
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
