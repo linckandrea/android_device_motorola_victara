@@ -51,7 +51,6 @@ on fs
     restorecon_recursive /cache/pds/
 
     mkdir /pds/public/atvc 0770 oem_5012 shell
-    mkdir /pds/batt_health 0755 oem_5001 oem_5001
 
     # arrange access to an available overlay
     mkdir /overlay 0755 root root

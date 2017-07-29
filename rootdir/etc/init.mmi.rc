@@ -68,16 +68,12 @@ on post-fs-data
     mkdir /data/wapi_certificate 0750 system wifi
     chown system wifi /data/wapi_certificate
 
-    # Create directory used by power_supply_logger
-    mkdir /data/power_supply_logger 0750 oem_5001 log
-
     # Permissions for battery health daemon
     chown oem_5001 oem_5001 /sys/module/qpnp_bms/parameters/last_ocv_uv
     chown oem_5001 oem_5001 /sys/module/qpnp_charger/parameters/bms_chrg_capacity
     chown oem_5001 oem_5001 /sys/module/qpnp_charger/parameters/bms_chrg_capacity_temp
     chown oem_5001 oem_5001 /sys/module/qpnp_charger/parameters/chrg_timestamp
 
-    start batt_health
     start hvdcp
 
 on post-fs
@@ -95,10 +91,6 @@ service charge_only_mode /vendor/bin/charge_only_mode
     user root
     group graphics system input
     disabled
-
-service batt_health /vendor/bin/batt_health
-    class main
-    user mot_pwric
 
 service hvdcp /vendor/bin/hvdcp
     class main
