@@ -26,6 +26,7 @@ media.stagefright.less-secure=true
 persist.mot.gps.smart_battery=1
 
 # Graphics
+debug.hwui.use_buffer_age=false
 persist.hwc.mdpcomp.enable=true
 ro.hdmi.enable=true
 ro.opengles.version=196608
