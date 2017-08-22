@@ -190,6 +190,9 @@ on post-fs-data
     mkdir /data/connectivity 0771 system system
     chown system system /data/connectivity
 
+    # To prevent permission denied error for telephony
+    chmod 0644 /proc/cmdline
+
     mkdir /data/connectivity/nsrm 0771 system system
     chown system system /data/connectivity/nsrm
 
