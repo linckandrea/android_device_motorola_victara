@@ -90,7 +90,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Audio
 PRODUCT_PACKAGES += \
     audio.a2dp.default \
-    audiod \
     audio_policy.msm8974 \
     audio.primary.msm8974 \
     audio.r_submix.default \
@@ -98,12 +97,18 @@ PRODUCT_PACKAGES += \
     libaudio-resampler \
     libqcompostprocbundle \
     libqcomvisualizer \
-    libqcomvoiceprocessing \
-    tinymix
+    libqcomvoiceprocessing
 
 PRODUCT_PACKAGES += \
     mbhc.bin \
     wcd9310_anc.bin
+
+PRODUCT_PACKAGES += \
+    android.hardware.audio@2.0-impl \
+    android.hardware.audio.effect@2.0-impl \
+    android.hardware.broadcastradio@1.0-impl \
+    android.hardware.soundtrigger@2.0-impl
+
 
 # Audio configuration
 PRODUCT_COPY_FILES += \
