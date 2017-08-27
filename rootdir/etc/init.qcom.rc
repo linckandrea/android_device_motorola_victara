@@ -257,9 +257,6 @@ on post-fs-data
     mkdir /data/fota 0771
     chown system system /data/fota
 
-    #Create directory for hostapd
-    mkdir /data/misc/wifi/hostapd 0770 system wifi
-
     # Create /data/time folder for time-services
     mkdir /data/time/ 0700 system system
     symlink /data/time /data/vendor/time
@@ -658,13 +655,6 @@ service atfwd /system/bin/ATFWD-daemon
     class late_start
     user system
     group system radio
-
-service hostapd /system/vendor/bin/hw/hostapd -dddd /data/misc/wifi/hostapd.conf
-    class late_start
-    user root
-    group root
-    oneshot
-    disabled
 
 on charger
     write /sys/module/lpm_levels/enable_low_power/l2 2
