@@ -128,6 +128,7 @@ PRODUCT_PACKAGES += \
     camera.device@3.2-impl \
     camera.msm8974 \
     libshim_camera \
+    libshims_sensorlistener \
     Snap
 
 # CRDA
