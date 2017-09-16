@@ -34,11 +34,7 @@ on early-init
     chown system graphics /sys/devices/virtual/graphics/fb0/idle_time
 
 on init
-<<<<<<< HEAD
-    export LD_SHIM_LIBS /system/bin/thermal-engine|libshims_thermal.so:/system/lib/libjustshoot.so|libshim_camera.so:/system/lib/libjscore.so|libshim_camera.so:/system/bin/mpdecision|libshims_atomic.so
-=======
-    export LD_SHIM_LIBS /system/bin/thermal-engine|libshims_thermal.so:/system/bin/mpdecision|libshims_atomic.so:/system/lib/hw/camera.vendor.msm8226.so|libshims_camera.so:/system/lib/libmot_sensorlistener.so|libshims_sensorlistener.so
->>>>>>> 9fad23b... msm8226-common: libshims: Add M sensorlistener shim for libmot_sensorlistener.so
+    export LD_SHIM_LIBS /system/bin/thermal-engine|libshims_thermal.so:/system/lib/libjustshoot.so|libshim_camera.so:/system/lib/libjscore.so|libshim_camera.so:/system/bin/mpdecision|libshims_atomic.so:/system/lib/libmot_sensorlistener.so|libshims_sensorlistener.so
 
     # Set permissions for persist partition
     mkdir /persist 0771 system system
