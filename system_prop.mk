@@ -48,6 +48,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	debug.hwui.use_buffer_age=false
 	debug.stagefright.omx_default_rank.sw-audio=1
 	debug.stagefright.omx_default_rank=0
+        debug.sf.latch_unsignaled=1 \
 	persist.media.treble_omx=false
 
 # QCOM
