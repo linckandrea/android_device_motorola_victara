@@ -100,8 +100,9 @@ EXTENDED_FONT_FOOTPRINT := true
 # GPS
 USE_DEVICE_SPECIFIC_GPS := true
 
-# Hardware
-BOARD_HARDWARE_CLASS := device/motorola/victara/cmhw
+# Lineage hardware
+BOARD_HARDWARE_CLASS += \
+    $(LOCAL_PATH)/lineagehw
 
 # Init
 TARGET_NR_SVC_SUPP_GIDS := 32
