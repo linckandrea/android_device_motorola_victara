@@ -1,20 +1,8 @@
-# These have services defined but I haven't included them
-#bin/tcmd
-#bin/tcmdhelp
-#bin/aplogd
-#bin/mbm_spy
-#bin/esdpll
-#bin/ATFWD-daemon
-#bin/debuggerd
-#bin/dropboxd
-#bin/ptt_socket_app
-#bin/subsystem_ramdump
-
 # ADSP
-bin/adspd
+bin/adspd:vendor/bin/adspd
 
 # Audio
-bin/adsprpcd
+bin/adsprpcd:vendor/bin/adsprpcd
 lib/libspeakerbundle.so:lib/soundfx/libspeakerbundle.so
 vendor/lib/libacdbloader.so
 vendor/lib/libacdbmapper.so
@@ -59,12 +47,12 @@ vendor/lib/soundfx/libqcreverb.so
 bin/hvdcp
 
 # Bluetooth
-bin/btnvtool
-bin/hci_qcomm_init
+bin/btnvtool:vendor/bin/btnvtool
+bin/hci_qcomm_init:vendor/bin/hci_qcomm_init
 vendor/lib/libbtnv.so
 
 # Camera
-bin/mm-qcamera-daemon
+bin/mm-qcamera-daemon:vendor/bin/mm-qcamera-daemon
 etc/firmware/cpp_firmware_v1_1_1.fw
 etc/firmware/cpp_firmware_v1_1_6.fw
 etc/firmware/cpp_firmware_v1_2_0.fw
@@ -160,14 +148,14 @@ vendor/lib/libchromatix_s5k5e2_preview.so
 vendor/lib/libchromatix_s5k5e2_snapshot.so
 
 # CPU
-bin/mpdecision
-bin/thermal-engine
+bin/mpdecision:vendor/bin/mpdecision
+bin/thermal-engine:vendor/bin/thermal-engine
 vendor/lib/libqc-opt.so
 vendor/lib/libqti-perfd-client.so
 vendor/lib/libthermalioctl.so
 
 # DRM
-bin/qseecomd
+bin/qseecomd:vendor/bin/qseecomd
 lib/drm/libfwdlockengine.so
 lib/libdrmdecrypt.so
 vendor/firmware/widevine.b00
@@ -196,7 +184,7 @@ vendor/lib/libWVStreamControlAPI_L1.so
 # GPS
 -app/com.qualcomm.location/com.qualcomm.location.apk
 -app/com.qualcomm.services.location/com.qualcomm.services.location.apk
-bin/gpsone_daemon
+bin/gpsone_daemon:vendor/bin/gpsone_daemon
 etc/permissions/com.qualcomm.location.xml
 etc/gps.conf
 etc/izat.conf
@@ -239,9 +227,9 @@ etc/firmware/a330_pfp.fw
 etc/firmware/a330_pm4.fw
 
 # IMS - currently unused but have dependencies to qmi
-bin/imsdatadaemon
-bin/imsqmidaemon
-bin/ims_rtp_daemon
+bin/imsdatadaemon:vendor/bin/imsdatadaemon
+bin/imsqmidaemon:vendor/bin/imsqmidaemon
+bin/ims_rtp_daemon:vendor/bin/ims_rtp_daemon
 vendor/lib/libmmrtpencoder.so
 vendor/lib/lib-dplmedia.so
 vendor/lib/lib-imsdpl.so
@@ -271,15 +259,15 @@ etc/firmware/venus.mbn
 etc/firmware/venus.mdt
 
 # Motorola
-bin/batt_health
-bin/dbvc_atvc_property_set
-bin/hardware_revisions.sh
+bin/batt_health:vendor/bin/batt_health
+bin/dbvc_atvc_property_set:vendor/bin/dbvc_atvc_property_set
+bin/hardware_revisions.sh:vendor/bin/hardware_revisions.sh
 
 # NFC
 etc/firmware/BCM20795A1_001.002.012.0003.0078_Generic_I2C_NCD_Signed_configdata.ncd
 
 # Qualcomm framework
-bin/irsc_util
+bin/irsc_util:vendor/bin/irsc_util
 vendor/lib/libdsutils.so
 vendor/lib/libdsi_netctrl.so
 vendor/lib/libidl.so
@@ -297,15 +285,14 @@ vendor/lib/libqmi_common_so.so
 vendor/lib/libqmi_encdec.so
 
 # Radio
-bin/efsks
-bin/ks
-bin/netmgrd
-bin/qcks
+bin/efsks:vendor/bin/efsks
+bin/ks:vendor/bin/ks
+bin/netmgrd:vendor/bin/netmgrd
+bin/qcks:vendor/bin/qcks
 bin/qmi_motext_hook
-bin/qmuxd
-bin/radish
-bin/rmt_storage
-lib/libadropbox.so
+bin/qmuxd:vendor/bin/qmuxd
+bin/radish:vendor/bin/radish
+bin/rmt_storage:vendor/bin/rmt_storage
 lib/libmdmcutback.so
 lib/libmdmdetect.so
 lib/libmotext_inf.so
@@ -321,7 +308,7 @@ vendor/lib/libtime_genoff.so
 vendor/lib/libxml.so
 
 # Sensors
-bin/stm401
+bin/stm401:vendor/bin/stm401
 etc/firmware/cy8c20247_24lkxi.hex
 etc/firmware/sensorhubfw.bin
 etc/firmware/sensorhubfw_p0.bin
@@ -332,7 +319,7 @@ lib/hw/sensors.msm8974.so
 vendor/lib/libsensor1.so
 
 # Time
-bin/time_daemon
+bin/time_daemon:vendor/bin/time_daemon
 
 # Touch frimware
 etc/firmware/atmel-a432-14102902-0103aa-victara.tdat

@@ -91,26 +91,26 @@ service apanic_annotate  /system/bin/sh /system/bin/apanic_annotate.sh build
     group log
     oneshot
 
-service charge_only_mode /system/bin/charge_only_mode
+service charge_only_mode /vendor/bin/charge_only_mode
     user root
     group graphics system input
     disabled
 
-service batt_health /system/bin/batt_health
+service batt_health /vendor/bin/batt_health
     class main
     user mot_pwric
 
-service hvdcp /system/bin/hvdcp
+service hvdcp /vendor/bin/hvdcp
     class main
     user root
 
-service thermal-com /system/bin/thermal-engine --minimode
+service thermal-com /vendor/bin/thermal-engine --minimode
     class main
     user root
     disabled
 
 #start Sensor daemon
-service stm401 /system/bin/stm401 boot
+service stm401 /vendor/bin/stm401 boot
     disabled
     user compass
     group compass misc input
@@ -214,7 +214,7 @@ on boot
     write /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk 1
     write /sys/module/lowmemorykiller/parameters/vmpressure_file_min 53059
 
-service adspd /system/bin/adspd /dev/ttyHS3
+service adspd /vendor/bin/adspd /dev/ttyHS3
     class main
     socket adspdsock stream 0660 system audio
     user audio
@@ -333,7 +333,7 @@ on property:ro.debuggable=1
     chmod 0775 /sys/kernel/debug
 
 
-service hw_revs /system/bin/sh /system/bin/hardware_revisions.sh
+service hw_revs /system/bin/sh /vendor/bin/hardware_revisions.sh
     class main
     user system
     group system
@@ -345,13 +345,13 @@ service mbm_spy /system/bin/mbm_spy
     group system
     oneshot
 
-service atvc_core /system/bin/dbvc_atvc_property_set
+service atvc_core /vendor/bin/dbvc_atvc_property_set
    class core
    user oem_5012
    group oem_5007
    oneshot
 
-service atvc /system/bin/dbvc_atvc_property_set
+service atvc /vendor/bin/dbvc_atvc_property_set
    class late_start
    user oem_5012
    group oem_5007
