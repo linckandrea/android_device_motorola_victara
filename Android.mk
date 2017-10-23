@@ -32,7 +32,7 @@ $(FIRMWARE_KEYMASTER_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 
 ALL_DEFAULT_INSTALLED_MODULES += $(FIRMWARE_KEYMASTER_SYMLINKS)
 
-PERSIST_WCNSS := $(TARGET_OUT_ETC)/firmware/wlan/prima/WCNSS_qcom_wlan_factory_nv.bin
+PERSIST_WCNSS := $(TARGET_OUT_VENDOR)/firmware/wlan/prima/WCNSS_qcom_wlan_factory_nv.bin
 
 $(PERSIST_WCNSS): $(LOCAL_INSTALLED_MODULE)
 	@echo "WCNSS_qcom_wlan_factory_nv.bin Firmware link: $@"
@@ -40,7 +40,7 @@ $(PERSIST_WCNSS): $(LOCAL_INSTALLED_MODULE)
 	@rm -rf $@
 	$(hide) ln -sf /persist/$(notdir $@) $@
 
-WCNSS_CFG_INI := $(TARGET_OUT_ETC)/firmware/wlan/prima/WCNSS_qcom_cfg.ini
+WCNSS_CFG_INI := $(TARGET_OUT_VENDOR)/firmware/wlan/prima/WCNSS_qcom_cfg.ini
 
 $(WCNSS_CFG_INI): $(LOCAL_INSTALLED_MODULE)
 	@echo "WCNSS_qcom_cfg.ini Firmware link: $@"
