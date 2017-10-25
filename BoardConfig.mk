@@ -102,8 +102,8 @@ EXTENDED_FONT_FOOTPRINT := true
 USE_DEVICE_SPECIFIC_GPS := true
 
 # Lineage hardware
-BOARD_HARDWARE_CLASS += \
-    $(LOCAL_PATH)/lineagehw
+#BOARD_HARDWARE_CLASS += \
+#    $(LOCAL_PATH)/lineagehw
 
 # Init
 TARGET_NR_SVC_SUPP_GIDS := 32
