@@ -21,6 +21,9 @@ LOCAL_PATH := device/motorola/victara
 
 BOARD_VENDOR := motorola-qcom
 
+# Enable real time lockscreen charging current values
+BOARD_GLOBAL_CFLAGS += -DBATTERY_REAL_INFO
+
 # Assert
 TARGET_OTA_ASSERT_DEVICE := victara
 
@@ -147,7 +150,7 @@ TARGET_USERIMAGES_USE_F2FS := true
 # Ril
 BOARD_GLOBAL_CFLAGS += -DUSE_RIL_VERSION_11
 BOARD_GLOBAL_CPPFLAGS += -DUSE_RIL_VERSION_11
-#TARGET_RIL_VARIANT := caf
+TARGET_RIL_VARIANT := caf
 
 # SDClang
 TARGET_USE_SDCLANG := true
