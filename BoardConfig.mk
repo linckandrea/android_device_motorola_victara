@@ -74,6 +74,9 @@ TARGET_LD_SHIM_LIBS := \
     /system/lib/libmot_sensorlistener.so|libshims_sensorlistener.so \
     /system/lib/libmdmcutback.so|libqsap_shim.so
 
+# Binder API version
+TARGET_USES_64_BIT_BINDER := true
+
 # Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(LOCAL_PATH)/bluetooth
 BOARD_HAVE_BLUETOOTH := true
