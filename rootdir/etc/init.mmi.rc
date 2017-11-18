@@ -87,11 +87,6 @@ service apanic_annotate  /system/bin/sh /system/bin/apanic_annotate.sh build
     group log
     oneshot
 
-service charge_only_mode /vendor/bin/charge_only_mode
-    user root
-    group graphics system input
-    disabled
-
 service hvdcp /vendor/bin/hvdcp
     class main
     user root
@@ -325,29 +320,11 @@ on property:ro.debuggable=1
     chmod 0775 /sys/kernel/debug
 
 
-service hw_revs /system/bin/sh /vendor/bin/hardware_revisions.sh
-    class main
-    user system
-    group system
-    oneshot
-
 service mbm_spy /system/bin/mbm_spy
     class late_start
     user system
     group system
     oneshot
-
-service atvc_core /vendor/bin/dbvc_atvc_property_set
-   class core
-   user oem_5012
-   group oem_5007
-   oneshot
-
-service atvc /vendor/bin/dbvc_atvc_property_set
-   class late_start
-   user oem_5012
-   group oem_5007
-   oneshot
 
 service qe /xbin/qe /system
    class main
