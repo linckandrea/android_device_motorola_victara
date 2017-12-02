@@ -36,7 +36,7 @@ persist.media.treble_omx=false
 camera.disable_treble=true
 
 # QCOM
-ro.vendor.extension_library=/vendor/lib/libqc-opt.so
+ro.vendor.extension_library=/vendor/lib/libqti-perfd-client.so
 
 # RIL
 DEVICE_PROVISIONED=1
