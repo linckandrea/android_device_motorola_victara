@@ -29,6 +29,9 @@ TARGET_FS_CONFIG_GEN := \
     $(LOCAL_PATH)/fs_config/mot_aids.txt \
     $(LOCAL_PATH)/fs_config/file_caps.txt
 
+# ADB Legacy Interface
+TARGET_USES_LEGACY_ADB_INTERFACE := true
+
 # Filesystem
 TARGET_FS_CONFIG_GEN := $(LOCAL_PATH)/config.fs
 
