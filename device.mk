@@ -264,6 +264,7 @@ PRODUCT_PACKAGES += \
 
 # Support
 PRODUCT_PACKAGES += \
+    libqsap_sdk \
     libcnefeatureconfig \
     libcurl \
     libxml2
