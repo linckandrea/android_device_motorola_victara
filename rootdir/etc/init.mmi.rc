@@ -207,62 +207,62 @@ service adspd /vendor/bin/adspd /dev/ttyHS3
     user audio
     group audio input diag
 
-service ftmipcd /system/bin/ftmipcd
-    user radio
-    group radio inet oem_2950
-    disabled
-    oneshot
+#service ftmipcd /system/bin/ftmipcd
+#    user radio
+#    group radio inet oem_2950
+#    disabled
+#    oneshot
 
-on property:ro.bootmode=mot-factory
-    start ftmipcd
+#on property:ro.bootmode=mot-factory
+#    start ftmipcd
 
 # Power up to suspend
-on property:tcmd.suspend=1
-    stop surfaceflinger
-    stop zygote
-    setprop debug.sf.nobootanimation 1
+#n property:tcmd.suspend=1
+#    stop surfaceflinger
+#    stop zygote
+#    setprop debug.sf.nobootanimation 1
 
 # Normal to suspend
-on property:tcmd.suspend=2
-    stop surfaceflinger
-    stop zygote
-    setprop debug.sf.nobootanimation 1
+#on property:tcmd.suspend=2
+#    stop surfaceflinger
+#    stop zygote
+#    setprop debug.sf.nobootanimation 1
 
-service tcmd /system/bin/tcmd
-    class core
-    group oem_5004 radio oem_5001 input system log camera graphics oem_5000 sdcard_r sdcard_rw audio inet bluetooth wifi compass net_bt_admin oem_9006 oem_5007 mount net_raw net_admin media shell oem_9002 nfc fm_radio qcom_diag oem_5014 cache media_rw
-    socket local_tcmd stream 0660 oem_5004 oem_5004
-    socket batch_socket stream 0600 oem_5004 oem_5004
-    oneshot
-    disabled
+#service tcmd /system/bin/tcmd
+#    class core
+#    group oem_5004 radio oem_5001 input system log camera graphics oem_5000 sdcard_r sdcard_rw audio inet bluetooth wifi compass net_bt_admin oem_9006 oem_5007 mount net_raw net_admin media shell oem_9002 nfc fm_radio qcom_diag oem_5014 cache media_rw
+#    socket local_tcmd stream 0660 oem_5004 oem_5004
+#    socket batch_socket stream 0600 oem_5004 oem_5004
+#    oneshot
+#    disabled
 
-service tcmdhelp /system/bin/tcmdhelp
-    class main
-    socket tcmdhelp stream 0600 oem_5004 oem_5004
-    oneshot
-    disabled
+#service tcmdhelp /system/bin/tcmdhelp
+#    class main
+#    socket tcmdhelp stream 0600 oem_5004 oem_5004
+#    oneshot
+#    disabled
 
-on property:tcmd.start_tcmdhelp=1
-    start tcmdhelp
+#on property:tcmd.start_tcmdhelp=1
+#    start tcmdhelp
 
 on property:persist.mot.demo_mode_charging=1
     write /sys/class/power_supply/battery/device/force_demo_mode 1
 
-on property:persist.log.aplogd.enable=1
-    start aplogd
+#on property:persist.log.aplogd.enable=1
+#    start aplogd
 
-on property:persist.log.aplogd.enable=0
-    stop aplogd
+#on property:persist.log.aplogd.enable=0
+#    stop aplogd
 
-service aplogd /system/bin/aplogd
-    class main
+#service aplogd /system/bin/aplogd
+    #class main
     #user log
     #group log system sdcard_rw sdcard_r media_rw mount
     # The user and group definitions above are intentionally disabled and left
     # only as documentation. It actually starts as root and immediately drops
     # to log plus those groups after preserving CAP_SYS_ADMIN, which is required
     # for kernel logging.
-    disabled
+    #disabled
 
 service mmi-radio-sh /system/bin/sh /init.mmi.radio.sh
     class core
@@ -270,26 +270,26 @@ service mmi-radio-sh /system/bin/sh /init.mmi.radio.sh
     group radio
     oneshot
 
-on property:persist.sys.diag_mdlog.on=1
-    start diag_mdlog
+#on property:persist.sys.diag_mdlog.on=1
+#    start diag_mdlog
 
-on property:persist.sys.diag_mdlog.on=0
-    stop diag_mdlog
+#on property:persist.sys.diag_mdlog.on=0
+#    stop diag_mdlog
 
-on property:log.diag_mdlog.invld_mode_stop=1
-    stop diag_mdlog
+#on property:log.diag_mdlog.invld_mode_stop=1
+#    stop diag_mdlog
 
-service diag_mdlog /system/bin/diag_mdlog-wrap
-    class main
-    socket mdlog_cmd stream 0660 system diag
-    user log
-    group log sdcard_rw sdcard_r media_rw qcom_diag
-    disabled
+#service diag_mdlog /system/bin/diag_mdlog-wrap
+#    class main
+#    socket mdlog_cmd stream 0660 system diag
+#    user log
+#    group log sdcard_rw sdcard_r media_rw qcom_diag
+#    disabled
 
-service dropboxd /system/bin/dropboxd
-    class late_start
-    user diag
-    group diag
+#service dropboxd /system/bin/dropboxd
+#    class late_start
+#    user diag
+#    group diag
 
 on property:sys.boot_completed=1
     setprop sys.io.scheduler bfq
@@ -320,37 +320,37 @@ on property:ro.debuggable=1
     chmod 0775 /sys/kernel/debug
 
 
-service mbm_spy /system/bin/mbm_spy
-    class late_start
-    user system
-    group system
-    oneshot
+#service mbm_spy /system/bin/mbm_spy
+#    class late_start
+#    user system
+#    group system
+#    oneshot
 
-service qe /xbin/qe /system
-   class main
-   oneshot
-   disabled
+#service qe /xbin/qe /system
+#   class main
+#   oneshot
+#   disabled
 
-service qe_broadcast /xbin/qe /system -b
-   class main
-   oneshot
-   disabled
+#service qe_broadcast /xbin/qe /system -b
+#   class main
+#   oneshot
+#   disabled
 
-on property:persist.qe.trigger=1
-   start qe_broadcast
+#on property:persist.qe.trigger=1
+#   start qe_broadcast
 
-service ss_rdump /system/bin/subsystem_ramdump 1 0
-   class late_start
-   user radio
-   group log sdcard_rw sdcard_r diag
+#service ss_rdump /system/bin/subsystem_ramdump 1 0
+#   class late_start
+#   user radio
+#   group log sdcard_rw sdcard_r diag
 
 on property:persist.sys.qc.sub.rdump.on=*
    write /sys/module/subsystem_restart/parameters/enable_ramdumps ${persist.sys.qc.sub.rdump.on}
 
-service esdpll /system/bin/esdpll -w
-    user oem_5016
-    group oem_5016 package_info
-    disabled
+#service esdpll /system/bin/esdpll -w
+#    user oem_5016
+#    group oem_5016 package_info
+#    disabled
 
 on property:service.bootanim.exit=1
     trigger enable-low-power
