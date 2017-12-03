@@ -323,10 +323,11 @@ service irsc_util /vendor/bin/irsc_util "/etc/sec_config"
 service rmt_storage /vendor/bin/rmt_storage
     class core
     user root
-    disabled
+    group system wakelock
+#   disabled
 
-on property:ro.boot.emmc=true
-    start rmt_storage
+#on property:ro.boot.emmc=true
+#   start rmt_storage
 
 #on property:bluetooth.start_hci=true
 #    start start_hci_filter
