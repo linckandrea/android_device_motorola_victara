@@ -1,6 +1,5 @@
 /*
    Copyright (c) 2013, The Linux Foundation. All rights reserved.
-
    Redistribution and use in source and binary forms, with or without
    modification, are permitted provided that the following conditions are
    met:
@@ -13,7 +12,6 @@
     * Neither the name of The Linux Foundation nor the names of its
       contributors may be used to endorse or promote products derived
       from this software without specific prior written permission.
-
    THIS SOFTWARE IS PROVIDED "AS IS" AND ANY EXPRESS OR IMPLIED
    WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
    MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT
@@ -34,10 +32,9 @@
 #include <android-base/properties.h>
 #include "vendor_init.h"
 #include "property_service.h"
-#include "log.h"
 
-namespace android {
-namespace init {
+using android::base::GetProperty;
+using android::init::property_set;
 
 void property_override(char const prop[], char const value[])
 {
@@ -56,19 +53,19 @@ void vendor_load_properties()
     std::string cid;
     std::string radio;
 
-    platform = android::base::GetProperty("ro.board.platform", "");
+    platform = GetProperty("ro.board.platform","");
     if (platform != ANDROID_TARGET)
         return;
 
-    radio = android::base::GetProperty("ro.boot.radio", "");
+    radio = GetProperty("ro.boot.radio","");
     property_set("ro.hw.radio", radio.c_str());
 
-    cid = android::base::GetProperty("ro.boot.cid", "");
+    cid = GetProperty("ro.boot.cid","");
 
     property_override("ro.build.product", "victara");
     property_override("ro.product.device", "victara");
 
-    if (cid == "0xE") {
+    if (cid == "0xC") {
         /* xt1097 */
         property_override("ro.product.model", "XT1097");
         property_override("ro.build.description", "victara_retca-user 5.1 LPE23.32-48.1 1 release-keys");
@@ -115,6 +112,3 @@ void vendor_load_properties()
         property_set("telephony.lteOnGsmDevice", "1");
     }
 }
-
-}  // namespace init
-}  // namespace android
