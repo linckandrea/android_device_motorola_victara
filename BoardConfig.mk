@@ -146,6 +146,11 @@ TARGET_USES_MKE2FS := true
 # Power HAL
 TARGET_POWERHAL_VARIANT := qcom
 
+# Power
+TARGET_HAS_LEGACY_POWER_STATS := true
+TARGET_HAS_NO_WIFI_STATS := true
+TARGET_USES_INTERACTION_BOOST := true
+
 # Qualcomm support
 
 # Recovery
