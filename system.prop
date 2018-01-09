@@ -35,10 +35,11 @@ persist.mot.gps.smart_battery=1
 
 ## Graphics
 debug.hwui.use_buffer_age=false
-debug.sf.enable_gl_backpressure=1
 debug.sf.disable_backpressure=1
+debug.sf.enable_gl_backpressure=1
 debug.sf.latch_unsignaled=1
 debug.stagefright.ccodec=0
+debug.sf.recomputecrop=0
 persist.hwc.mdpcomp.enable=true
 persist.media.treble_omx=false
 ro.hdmi.enable=true
