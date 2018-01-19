@@ -3,13 +3,13 @@
     "remote": "github",
     "repository":  "oreo-victara/android_kernel_motorola_msm8974",
     "target_path": "kernel/motorola/msm8974",
-    "branch": "lineage-15.0"
+    "branch": "lineage-15.1"
   },
   {
     "remote": "github",
     "repository":  "oreo-victara/android_vendor_motorola",
     "target_path": "vendor/motorola",
-    "branch": "lineage-15.0"
+    "branch": "lineage-15.1"
   },
   {
     "remote": "github",
