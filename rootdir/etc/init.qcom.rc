@@ -34,7 +34,7 @@ on early-init
     chown system graphics /sys/devices/virtual/graphics/fb0/idle_time
 
 on init
-    export LD_SHIM_LIBS /system/lib/libjustshoot.so|libshims_sensorlistener.so:/system/lib/libjscore.so|libshims_sensorlistener.so:/system/lib/libmot_sensorlistener.so|libshims_sensorlistener.so:/system/vendor/bin/thermal-engine|libshims_thermal.so:/system/vendor/bin/mpdecision|libshims_atomic.so
+    export LD_SHIM_LIBS /system/lib/libjustshoot.so|libshims_sensorlistener.so:/system/lib/libjscore.so|libshims_sensorlistener.so:/system/lib/libmot_sensorlistener.so|libshims_sensorlistener.so:/system/vendor/bin/thermal-engine|libshims_thermal.so
 
     # Set permissions for persist partition
     mkdir /persist 0771 system system
@@ -614,11 +614,6 @@ on enable-low-power
     write /sys/module/cpu_boost/parameters/sync_threshold 1728000
     write /sys/module/cpu_boost/parameters/input_boost_freq 1497600
     write /sys/module/cpu_boost/parameters/input_boost_ms 40
-
-    # mpdecision
-    setprop ro.qualcomm.perf.cores_online 2
-    rm /data/system/default_values
-    start mpdecision
 
 #service atfwd /system/bin/ATFWD-daemon
 #    class late_start
