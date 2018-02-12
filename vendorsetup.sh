@@ -1,1 +1,1 @@
-add_lunch_combo lineage_victara-userdebug
+add_lunch_combo rr_victara-userdebug
