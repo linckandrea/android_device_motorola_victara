@@ -1,1 +1,1 @@
-add_lunch_combo lineage_victara-userdebug
+add_lunch_combo aoscp_victara-userdebug
