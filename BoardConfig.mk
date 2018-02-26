@@ -180,4 +180,4 @@ WIFI_DRIVER_FW_PATH_STA   := "sta"
 WIFI_DRIVER_FW_PATH_AP    := "ap"
 
 # SHIM
-TARGET_LD_SHIM_LIBS := /system/lib/libjustshoot.so|libshims_sensorlistener.so:/system/lib/libjscore.so|libshims_sensorlistener.so:/system/lib/libmot_sensorlistener.so|libshims_sensorlistener.so:/system/vendor/bin/thermal-engine|libshims_thermal.so:/system/vendor/bin/mpdecision|libshims_atomic.so
+TARGET_LD_SHIM_LIBS := /system/lib/libjustshoot.so|libshims_sensorlistener.so:/system/lib/libjscore.so|libshims_sensorlistener.so:/system/lib/libmot_sensorlistener.so|libshims_sensorlistener.so:/system/vendor/bin/thermal-engine|libshims_thermal.so:/system/vendor/bin/mpdecision|libshims_atomic.so:/system/lib/libmdmcutback.so|libqsap_shim.so

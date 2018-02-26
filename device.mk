@@ -276,6 +276,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     libshims_thermal
 
+# Radio
+PRODUCT_PACKAGES += \
+    libqsap_shim
+
 # Torch
 PRODUCT_PACKAGES += \
     Torch
