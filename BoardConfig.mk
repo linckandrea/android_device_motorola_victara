@@ -136,8 +136,9 @@ TARGET_RIL_VARIANT := caf
 TARGET_USE_SDCLANG := true
 ifneq ($(HOST_OS),darwin)
 SDCLANG := true
-SDCLANG_PATH := prebuilts/clang/linux-x86/host/sdclang-4.0/bin
+SDCLANG_PATH := prebuilts/clang/linux-x86/host/SDclang-3.8/bin
 SDCLANG_LTO_DEFS := device/qcom/common/sdllvm-lto-defs.mk
+SDCLANG_COMMON_FLAGS := -O3
 endif
 
 # SELinux
