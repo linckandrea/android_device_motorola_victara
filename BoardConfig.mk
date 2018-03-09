@@ -178,3 +178,6 @@ PRODUCT_VENDOR_MOVE_ENABLED := true
 WPA_SUPPLICANT_VERSION := VER_0_8_X
 WIFI_DRIVER_FW_PATH_STA   := "sta"
 WIFI_DRIVER_FW_PATH_AP    := "ap"
+
+# SHIM
+TARGET_LD_SHIM_LIBS := /system/lib/libjustshoot.so|libshims_sensorlistener.so:/system/lib/libjscore.so|libshims_sensorlistener.so:/system/lib/libmot_sensorlistener.so|libshims_sensorlistener.so:/system/vendor/bin/thermal-engine|libshims_thermal.so:/system/vendor/bin/mpdecision|libshims_atomic.so
