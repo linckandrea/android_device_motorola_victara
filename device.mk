@@ -130,6 +130,9 @@ PRODUCT_PACKAGES += \
     libshims_sensorlistener \
     Snap
 
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/hdrhax:system/vendor/etc/hdrhax
+
 # CRDA
 PRODUCT_PACKAGES += \
     crda \
