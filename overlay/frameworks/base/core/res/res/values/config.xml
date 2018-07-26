@@ -228,6 +228,9 @@
          rmem_min,rmem_def,rmem_max,wmem_min,wmem_def,wmem_max -->
      <string name="config_wifi_tcp_buffers">131072,262144,3145728,4096,221184,3145728</string>
 
+    <!-- Integer indicating wpa_supplicant scan interval in milliseconds -->
+    <integer translatable="false" name="config_wifi_supplicant_scan_interval">40000</integer>
+
    <!-- Boolean indicating if restoring network selection should be skipped -->
 
     <!-- When true, the tethering upstream network follows the current default
