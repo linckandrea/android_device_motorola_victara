@@ -14,4 +14,4 @@
 # limitations under the License.
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/full_victara.mk
+    $(LOCAL_DIR)/carbon_victara.mk
