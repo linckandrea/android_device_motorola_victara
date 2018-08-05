@@ -148,6 +148,11 @@ BOARD_GLOBAL_CPPFLAGS += -DUSE_RIL_VERSION_11
 
 # SDClang
 TARGET_USE_SDCLANG := true
+ifneq ($(HOST_OS),darwin)
+SDCLANG := true
+SDCLANG_PATH := vendor/sd-clang/proprietary_vendor_qcom_sdclang-4.0_linux-x86/bin
+SDCLANG_LTO_DEFS := vendor/aoscp/build/core/sdllvm-lto-defs.mk
+endif
 
 # SELinux
 #include device/qcom/sepolicy/sepolicy.mk
