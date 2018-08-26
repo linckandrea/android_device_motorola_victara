@@ -202,18 +202,19 @@ PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml
 
 # NFC
-#PRODUCT_PACKAGES += \
-#    libnfc \
-#    libnfc_jni \
-#    nfc_nci.bcm2079x.default \
-#    NfcNci \
-#    Tag \
-#    com.android.nfc_extras \
-#    android.hardware.nfc@1.0-impl
+PRODUCT_PACKAGES += \
+    android.hardware.nfc@1.0-impl \
+    libnfc \
+    libnfc_jni \
+    android.hardware.nfc@1.0-service \
+    nfc_nci.bcm2079x.default \
+    NfcNci \
+    Tag \
+    com.android.nfc_extras
 
 PRODUCT_COPY_FILES += \
-    device/motorola/victara/nfc/libnfc-brcm.conf:system/etc/libnfc-brcm.conf \
-    device/motorola/victara/nfc/libnfc-brcm-20795a10.conf:system/etc/libnfc-brcm-20795a10.conf
+    device/motorola/victara/nfc/libnfc-brcm.conf:system/vendor/etc/libnfc-brcm.conf \
+    device/motorola/victara/nfc/libnfc-brcm-20795a10.conf:system/vendor/etc/libnfc-brcm-20795a10.conf
 
 # OMX
 PRODUCT_PACKAGES += \
