@@ -114,6 +114,9 @@ USE_DEVICE_SPECIFIC_GPS := true
 #BOARD_HARDWARE_CLASS += \
 #    $(LOCAL_PATH)/lineagehw
 
+#HIDL
+DEVICE_MANIFEST_FILE := device/motorola/victara/manifest.xml
+
 # Init
 TARGET_NR_SVC_SUPP_GIDS := 32
 
