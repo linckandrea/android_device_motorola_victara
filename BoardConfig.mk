@@ -150,8 +150,8 @@ BOARD_GLOBAL_CPPFLAGS += -DUSE_RIL_VERSION_11
 TARGET_USE_SDCLANG := true
 
 # SELinux
-#include device/qcom/sepolicy/sepolicy.mk
-#BOARD_SEPOLICY_DIRS += device/motorola/victara/sepolicy
+include device/qcom/sepolicy/sepolicy.mk
+BOARD_SEPOLICY_DIRS += device/motorola/victara/sepolicy
 
 # Vendor Init
 TARGET_INIT_VENDOR_LIB := libinit_victara
