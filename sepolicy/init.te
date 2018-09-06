@@ -9,5 +9,8 @@ allow init rootfs:lnk_file relabelfrom;
 allow init sysfs_battery_supply:lnk_file read;
 allow init sysfs_light:file setattr;
 allow init sysfs_power:file setattr;
+allow init kernel:security permissive=1 { setcheckreqprot }; 
+allow init init:process permissive=1 { setcurrent };
+allow init init:process permissive=1 { dyntransition };
 
 allow init self:socket read;
