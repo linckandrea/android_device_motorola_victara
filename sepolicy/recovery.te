@@ -1,0 +1,8 @@
+allow recovery rootfs:dir permissive=1 { write add_name create }
+allow recovery selinuxfs:file permissive=1 { write }
+allow recovery rootfs:dir permissive=1 { remove_name rename }
+allow recovery media_rw_data_file:file permissive=1 { open read getattr }
+allow recovery recovery:capability permissive=1 { sys_time }
+allow recovery tmpfs:fifo_file permissive=1 { read open create }
+allow recovery rootfs:tclass=fifo_file permissive=1 { create }
+allow recovery media_rw_data_file:dir permissive=1 { write add_name create write setattr relabelfrom relabelto }
