@@ -86,7 +86,7 @@ BOARD_GLOBAL_CFLAGS += -DCAMERA_VENDOR_L_COMPAT
 TARGET_HAS_LEGACY_CAMERA_HAL1 := true
 TARGET_NEEDS_PLATFORM_TEXT_RELOCATIONS := true
 USE_DEVICE_SPECIFIC_CAMERA := true
-TARGET_USES_NON_TREBLE_CAMERA := true
+TARGET_NEEDS_LEGACY_CAMERA_HAL1_DYN_NATIVE_HANDLE := true
 
 # Display
 SF_START_GRAPHICS_ALLOCATOR_SERVICE := true
@@ -154,8 +154,8 @@ TARGET_RIL_VARIANT := caf
 TARGET_USE_SDCLANG := true
 
 # SELinux
-include device/qcom/sepolicy/sepolicy.mk
-BOARD_SEPOLICY_DIRS += device/motorola/victara/sepolicy
+#include device/qcom/sepolicy/sepolicy.mk
+#BOARD_SEPOLICY_DIRS += device/motorola/victara/sepolicy
 
 # Vendor Init
 TARGET_INIT_VENDOR_LIB := libinit_victara
