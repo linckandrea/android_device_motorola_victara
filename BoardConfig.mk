@@ -69,7 +69,7 @@ TARGET_USES_QCOM_MM_AUDIO := true
 # Bionic
 TARGET_LD_SHIM_LIBS := \
     /system/bin/thermal-engine|libshims_thermal.so \
-    /system/lib/libjustshoot.so|libshim_camera.so \
+    /system/lib/libjustshoot.so|libshims_camera.so \
     /system/lib/libjscore.so|libshim_camera.so \
     /system/bin/mpdecision|libshims_atomic.so \
     /system/lib/libmot_sensorlistener.so|libshims_sensorlistener.so \
@@ -88,6 +88,7 @@ TARGET_HAS_LEGACY_CAMERA_HAL1 := true
 TARGET_NEEDS_PLATFORM_TEXT_RELOCATIONS := true
 USE_DEVICE_SPECIFIC_CAMERA := true
 TARGET_USES_NON_TREBLE_CAMERA := true
+TARGET_NEEDS_LEGACY_CAMERA_HAL1_DYN_NATIVE_HANDLE := true
 
 # Display
 SF_START_GRAPHICS_ALLOCATOR_SERVICE := true
