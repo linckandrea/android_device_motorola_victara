@@ -7,8 +7,8 @@ namespace android {
 extern "C" void _ZN7android10MediaCodec12CreateByTypeERKNS_2spINS_7ALooperEEERKNS_7AStringEbPiij(
 	const sp<ALooper> &looper, const AString &mime, bool encoder, status_t *err, pid_t pid, uid_t uid);
 
-extern "C" void _ZNK7android10MediaCodec15getInputBuffersEPNS_6VectorINS_2spINS_16MediaCodecBufferEEEEE(Vector<sp<ABuffer> > *buffers);
-extern "C" void _ZNK7android10MediaCodec16getOutputBuffersEPNS_6VectorINS_2spINS_16MediaCodecBufferEEEEE(Vector<sp<ABuffer> > *buffers);
+extern "C" void _ZNK7android10MediaCodec15getInputBuffersEPNS_6VectorINS_2spINS_16MediaCodecBufferEEEEE(Vector<sp<ABuffer> > *buffers); //Vector<sp<MediaCodecBuffer> > *buffers
+extern "C" void _ZNK7android10MediaCodec16getOutputBuffersEPNS_6VectorINS_2spINS_16MediaCodecBufferEEEEE(Vector<sp<ABuffer> > *buffers); //Vector<sp<MediaCodecBuffer> > *buffers
 
 extern "C" void _ZN7android10MediaCodec12CreateByTypeERKNS_2spINS_7ALooperEEERKNS_7AStringEbPii(
 	const sp<ALooper> &looper, const AString &mime, bool encoder, status_t *err, pid_t pid) {
