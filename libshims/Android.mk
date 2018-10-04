@@ -32,7 +32,6 @@ include $(CLEAR_VARS)
 LOCAL_SRC_FILES := \
     sensorlistener/ISensorServer.cpp \
     sensorlistener/SensorManager.cpp \
-    sensorlistener/moto_camera_misc.c \
     sensorlistener/sensors.cpp \
     sensorlistener/MediaCodec.cpp
 
