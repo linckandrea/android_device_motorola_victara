@@ -619,6 +619,9 @@ on enable-low-power
     rm /data/system/default_values
     start mpdecision
 
+    # hdr init
+    chmod 777 /system/vendor/etc/hdrhax
+
 #service atfwd /system/bin/ATFWD-daemon
 #    class late_start
 #    user system
