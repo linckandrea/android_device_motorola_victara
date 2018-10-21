@@ -170,6 +170,10 @@ on boot
 
 # msm specific files that need to be created on /data
 on post-fs-data
+
+    # Remove old mpdecision data
+    rm /data/system/default_values
+
     mkdir /data/misc/bluetooth 0770 bluetooth bluetooth
 
     # NFC local data and nfcee xml storage
@@ -613,11 +617,6 @@ on enable-low-power
     write /sys/module/cpu_boost/parameters/sync_threshold 1728000
     write /sys/module/cpu_boost/parameters/input_boost_freq 1497600
     write /sys/module/cpu_boost/parameters/input_boost_ms 40
-
-    # mpdecision
-    setprop ro.qualcomm.perf.cores_online 2
-    rm /data/system/default_values
-    start mpdecision
 
     # hdr init
     chmod 777 /system/vendor/etc/hdrhax

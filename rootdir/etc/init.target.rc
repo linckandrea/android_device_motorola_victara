@@ -92,8 +92,7 @@ service qseecomd /vendor/bin/qseecomd
 service mpdecision /vendor/bin/mpdecision --avg_comp
    class late_start
    user root
-   group system
-   disabled
+   group root readproc
 
 service thermal-engine /vendor/bin/thermal-engine
    class main
