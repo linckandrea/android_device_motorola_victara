@@ -16,6 +16,7 @@ LOCAL_SHARED_LIBRARIES := \
     libcutils \
     libgps.utils \
     libdl \
+    libandroid_runtime \
     libprocessgroup
 
 LOCAL_SRC_FILES += \
