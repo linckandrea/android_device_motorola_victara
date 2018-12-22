@@ -3,6 +3,8 @@ allow init block_device:blk_file setattr;
 allow init fsg_file:filesystem { relabelfrom relabelto mount };
 allow init hob_block_device:blk_file setattr;
 allow init fuse:dir { relabelfrom read };
+allow init kernel:security { setcheckreqprot };
+allow init init:process { setcurrent dyntransition };
 allow init fuse:file getattr;
 allow init pds_file:lnk_file read;
 allow init rootfs:lnk_file relabelfrom;
