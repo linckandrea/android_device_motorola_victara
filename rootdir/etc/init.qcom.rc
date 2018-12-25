@@ -36,6 +36,11 @@ on early-init
     # Set permissions so radio can read
     chmod 0444 /proc/cmdline
 
+    # Remove dalvik files that cause modem issues
+    rm /data/dalvik-cache/arm/system@framework@boot-telephony-common.art
+    rm /data/dalvik-cache/arm/system@framework@boot-telephony-common.vdex
+    rm /data/dalvik-cache/arm/system@framework@boot-telephony-common.oat
+
 on init
     # Set permissions for persist partition
     mkdir /persist 0771 system system
@@ -175,6 +180,9 @@ on boot
 
 # msm specific files that need to be created on /data
 on post-fs-data
+    rm /data/dalvik-cache/arm/system@framework@boot-telephony-common.art
+    rm /data/dalvik-cache/arm/system@framework@boot-telephony-common.vdex
+    rm /data/dalvik-cache/arm/system@framework@boot-telephony-common.oat
     mkdir /data/misc/bluetooth 0770 bluetooth bluetooth
 
     # NFC local data and nfcee xml storage
@@ -402,7 +410,7 @@ on property:bluetooth.hciattach=false
 service qmuxd /system/vendor/bin/qmuxd
     class main
     user radio
-    group radio audio bluetooth gps oem_2950
+    group radio audio bluetooth gps diag oem_2950
 
 service netmgrd /system/vendor/bin/netmgrd
     class main
@@ -519,6 +527,9 @@ service qcom-sh /init.qcom.sh
 
 on enable-low-power
     write /sys/module/lpm_levels/enable_low_power/l2 4
+    write /sys/devices/system/cpu/cpu1/online 1
+    write /sys/devices/system/cpu/cpu2/online 1
+    write /sys/devices/system/cpu/cpu3/online 1
     write /sys/module/msm_pm/modes/cpu0/power_collapse/suspend_enabled 1
     write /sys/module/msm_pm/modes/cpu1/power_collapse/suspend_enabled 1
     write /sys/module/msm_pm/modes/cpu2/power_collapse/suspend_enabled 1
