@@ -36,11 +36,6 @@ on early-init
     # Set permissions so radio can read
     chmod 0444 /proc/cmdline
 
-    # Remove dalvik files that cause modem issues
-    rm /data/dalvik-cache/arm/system@framework@boot-telephony-common.art
-    rm /data/dalvik-cache/arm/system@framework@boot-telephony-common.vdex
-    rm /data/dalvik-cache/arm/system@framework@boot-telephony-common.oat
-
 on init
     # Set permissions for persist partition
     mkdir /persist 0771 system system
@@ -180,9 +175,6 @@ on boot
 
 # msm specific files that need to be created on /data
 on post-fs-data
-    rm /data/dalvik-cache/arm/system@framework@boot-telephony-common.art
-    rm /data/dalvik-cache/arm/system@framework@boot-telephony-common.vdex
-    rm /data/dalvik-cache/arm/system@framework@boot-telephony-common.oat
     mkdir /data/misc/bluetooth 0770 bluetooth bluetooth
 
     # NFC local data and nfcee xml storage
@@ -258,6 +250,11 @@ on post-fs-data
 
     chown system system /sys/vibrator/pwmvalue
     chmod 0644 /sys/vibrator/pwmvalue
+
+    # Remove dalvik files that cause modem issues
+    rm /data/dalvik-cache/arm/system@framework@boot-telephony-common.art
+    rm /data/dalvik-cache/arm/system@framework@boot-telephony-common.vdex
+    rm /data/dalvik-cache/arm/system@framework@boot-telephony-common.oat
 
     setprop vold.post_fs_data_done 1
 
@@ -527,9 +524,6 @@ service qcom-sh /init.qcom.sh
 
 on enable-low-power
     write /sys/module/lpm_levels/enable_low_power/l2 4
-    write /sys/devices/system/cpu/cpu1/online 1
-    write /sys/devices/system/cpu/cpu2/online 1
-    write /sys/devices/system/cpu/cpu3/online 1
     write /sys/module/msm_pm/modes/cpu0/power_collapse/suspend_enabled 1
     write /sys/module/msm_pm/modes/cpu1/power_collapse/suspend_enabled 1
     write /sys/module/msm_pm/modes/cpu2/power_collapse/suspend_enabled 1
@@ -631,6 +625,20 @@ service atfwd /system/bin/ATFWD-daemon
     class late_start
     user system
     group system radio
+
+service ril-daemon /vendor/bin/hw/rild
+    class main
+    socket rild stream 660 root radio
+    socket rild-debug stream 660 radio system
+    user root
+    group radio cache inet misc audio log oem_2950 net_raw wifi
+
+service ril-daemon1 /vendor/bin/hw/rild -c 2
+    class main
+    user radio
+    group radio cache inet misc audio log readproc wakelock
+    capabilities BLOCK_SUSPEND NET_ADMIN NET_RAW
+    disabled
 
 service hostapd /system/bin/hostapd -dddd /data/misc/wifi/hostapd.conf
     class late_start
@@ -749,3 +757,8 @@ on property:persist.sys.qc.sub.ssr.max=*
 #    start rootagent
 #on property:persist.sys.rootagent=0
 #    stop rootagent
+
+on property:sys.boot_completed=1
+
+    #Oreo workaround
+    restart ril-daemon
