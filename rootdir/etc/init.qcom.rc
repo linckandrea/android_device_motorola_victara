@@ -258,8 +258,18 @@ on post-fs-data
 
     setprop vold.post_fs_data_done 1
 
+    # Create perfd deamon related dirs
+    mkdir /data/misc/perfd 0755 root system
+    chmod 2755 /data/misc/perfd
+    mkdir /data/system/perfd 0770 root system
+    chmod 2770 /data/system/perfd
+
 #service qcomsysd /system/bin/qcom-system-daemon
 #    class main
+
+on property:sys.boot_completed=1
+    #Oreo workaround
+    restart ril-daemon
 
 on property:persist.radio.atfwd.start=false
     stop atfwd
@@ -412,7 +422,7 @@ service qmuxd /system/vendor/bin/qmuxd
 service netmgrd /system/vendor/bin/netmgrd
     class main
     user root
-    group root wifi wakelock radio inet oem_2950
+    group root system wifi wakelock radio inet oem_2950
 
 # Service not used
 #service sensors /system/bin/sensors.qcom
@@ -757,8 +767,3 @@ on property:persist.sys.qc.sub.ssr.max=*
 #    start rootagent
 #on property:persist.sys.rootagent=0
 #    stop rootagent
-
-on property:sys.boot_completed=1
-
-    #Oreo workaround
-    restart ril-daemon
