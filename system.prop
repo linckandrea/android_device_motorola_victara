@@ -21,6 +21,7 @@ ro.audio.fm_max_volume=5793
 qcom.bluetooth.soc=smd
 
 # Camera
+debug.stagefright.ccodec=0
 camera2.portability.force_api=1
 
 # GPS
