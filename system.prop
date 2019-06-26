@@ -16,7 +16,7 @@ vendor.audio_hal.period_size=192
 vendor.voice.path.for.pcm.voip=true
 
 ## Bluetooth
-qcom.bluetooth.soc=smd
+vendor.qcom.bluetooth.soc=smd
 
 ## Camera
 camera2.portability.force_api=1
