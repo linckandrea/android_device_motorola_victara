@@ -36,3 +36,5 @@ allow init sysfs_hci_param:file { setattr };
 
 # For setting /proc/sys/vm/swappiness
 allow init proc:file { w_file_perms };
+
+allow init sysfs:file { setattr write };
