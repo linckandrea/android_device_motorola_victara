@@ -131,6 +131,11 @@ TARGET_NR_SVC_SUPP_GIDS := 32
 # Lights
 TARGET_PROVIDES_LIBLIGHT := true
 
+# Charger
+BACKLIGHT_PATH := /sys/class/leds/lcd-backlight/brightness
+BOARD_CHARGER_ENABLE_SUSPEND := true
+BOARD_NO_CHARGER_LED := true
+
 # Partitions
 BOARD_FLASH_BLOCK_SIZE := 131072
 BOARD_HAS_LARGE_FILESYSTEM := true

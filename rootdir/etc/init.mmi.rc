@@ -90,11 +90,6 @@ service apanic_annotate  /system/bin/sh /system/bin/apanic_annotate.sh build
     group log
     oneshot
 
-service charge_only_mode /system/bin/charge_only_mode
-    user root
-    group graphics system input
-    disabled
-
 service hvdcp /system/vendor/bin/hvdcp
     class main
     user root
