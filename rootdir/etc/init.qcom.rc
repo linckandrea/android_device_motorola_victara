@@ -208,6 +208,7 @@ on post-fs-data
     mkdir /data/vendor/wifi 0771 wifi wifi
     mkdir /data/vendor/wifi/wpa 0770 wifi wifi
     mkdir /data/vendor/wifi/wpa/sockets 0770 wifi wifi
+    mkdir /data/vendor/wifi/hostapd 0770 wifi wifi
 
     # Create the directories used by CnE subsystem
     mkdir /data/connectivity 0771 system system
