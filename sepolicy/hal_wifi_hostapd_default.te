@@ -4,3 +4,6 @@ allow hal_wifi_hostapd_default wifi_data_file:dir { rmdir search create setattr 
 allow hal_wifi_hostapd_default wifi_data_file:socket { create read };
 allow hal_wifi_hostapd_default wifi_data_file:sock_file { link unlink getattr setattr create rw_file_perms };
 allow hal_wifi_hostapd_default self:capability { setuid setgid };
+
+allow hal_wifi_hostapd_server sysfs_sar_wifi:dir search;
+allow hal_wifi_hostapd_server sysfs_sar_wifi:file r_file_perms;
