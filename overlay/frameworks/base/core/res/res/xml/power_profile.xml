@@ -24,6 +24,7 @@
     </array>
     <item name="cpu.clusters.cores">4</item>
     <array name="cpu.core_speeds.cluster0">
+        <value>268800</value>
         <value>300000</value>
         <value>422400</value>
         <value>652800</value>
