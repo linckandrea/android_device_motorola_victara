@@ -182,6 +182,10 @@ TARGET_USERIMAGES_USE_F2FS := true
 
 #BOARD_PLAT_PRIVATE_SEPOLICY_DIR += device/motorola/victara/sepolicy/private
 
+BOARD_SEPOLICY_DIRS += \
+	
+	device/motorola/victara/sepolicy-tmp
+
 # Vendor Init
 TARGET_INIT_VENDOR_LIB := libinit_victara
 TARGET_RECOVERY_DEVICE_MODULES := libinit_victara
