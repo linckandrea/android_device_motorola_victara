@@ -279,6 +279,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.sensors@1.0-impl
 
+# Shipping API level (for CTS backward compatibility)
+	
+PRODUCT_SHIPPING_API_LEVEL := 19
+
 # Support
 PRODUCT_PACKAGES += \
     libcnefeatureconfig \
