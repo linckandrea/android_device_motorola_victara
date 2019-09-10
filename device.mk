@@ -83,6 +83,10 @@ PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 PRODUCT_COPY_FILES += \
     device/motorola/victara/configs/ld.config.txt:system/etc/swcodec/ld.config.txt
 
+# Binder support symbols
+PRODUCT_PACKAGES += \
+    libshim_binder
+
 # Bluetooth HAL
 PRODUCT_PACKAGES += \
     android.hardware.bluetooth@1.0-impl \
