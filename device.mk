@@ -81,7 +81,7 @@ PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 
 # APEX
 PRODUCT_COPY_FILES += \
-    device/motorola/victara/configs/ld.config.txt:system/etc/swcodec/ld.config.txt
+    $(LOCAL_PATH)/motorola/victara/configs/ld.config.txt:system/etc/swcodec/ld.config.txt
 
 # Binder support symbols
 PRODUCT_PACKAGES += \
