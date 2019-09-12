@@ -33,7 +33,6 @@ LOCAL_MODULE_PATH  := $(TARGET_OUT_ETC)/hostapd
 LOCAL_SRC_FILES    := hostapd.deny
 include $(BUILD_PREBUILT)
 
-endif
 ###
 ### android.hardware.wifi static library
 ###
@@ -119,5 +118,6 @@ LOCAL_SHARED_LIBRARIES := \
     android.hardware.wifi@1.3
 LOCAL_STATIC_LIBRARIES := \
     android.hardware.wifi@1.0-service-lib.victara
-LOCAL_INIT_RC := android.hardware.wifi@1.0-service.rc.victara
+LOCAL_INIT_RC := android.hardware.wifi@1.0-service.victara.rc
 include $(BUILD_EXECUTABLE)
+endif
