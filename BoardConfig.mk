@@ -52,7 +52,7 @@ TARGET_USES_64_BIT_BINDER := true
 
 # Kernel
 BOARD_KERNEL_CMDLINE := console=none androidboot.hardware=qcom msm_rtb.filter=0x37 ehci-hcd.park=3 vmalloc=400M
-BOARD_KERNEL_CMDLINE += loop.max_part=7
+BOARD_KERNEL_CMDLINE += loop.max_part=7 androidboot.selinux=permissive
 BOARD_KERNEL_BASE := 0x80200000
 BOARD_KERNEL_LZ4C_DT := true
 BOARD_KERNEL_PAGESIZE := 2048
@@ -169,11 +169,10 @@ TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 
 # SELinux
-include device/qcom/sepolicy-legacy/sepolicy.mk
-
-BOARD_SEPOLICY_DIRS += device/motorola/victara/sepolicy
-
-BOARD_PLAT_PRIVATE_SEPOLICY_DIR += device/motorola/victara/sepolicy/private
+#include device/qcom/sepolicy-legacy/sepolicy.mk
+#BOARD_SEPOLICY_DIRS += device/motorola/victara/sepolicy
+BOARD_SEPOLICY_DIRS += device/motorola/victara/sepolicy/tmp
+#BOARD_PLAT_PRIVATE_SEPOLICY_DIR += device/motorola/victara/sepolicy/private
 
 # Vendor Init
 TARGET_INIT_VENDOR_LIB := libinit_victara
