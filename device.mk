@@ -79,6 +79,10 @@ PRODUCT_CHARACTERISTICS := nosdcard
 PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 
+# APEX
+PRODUCT_COPY_FILES += \
+    device/motorola/victara/configs/ld.config.txt:system/etc/swcodec/ld.config.txt
+
 # Bluetooth HAL
 PRODUCT_PACKAGES += \
     android.hardware.bluetooth@1.0-impl \
