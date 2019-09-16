@@ -794,3 +794,7 @@ on property:persist.sys.qc.sub.ssr.max=*
 #    start rootagent
 #on property:persist.sys.rootagent=0
 #    stop rootagent
+
+
+on property:apexd.status=ready
+    mount none /system/etc/swcodec/ld.config.txt /apex/com.android.media.swcodec/etc/ld.config.txt bind
