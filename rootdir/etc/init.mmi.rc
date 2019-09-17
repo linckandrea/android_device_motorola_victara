@@ -222,19 +222,19 @@ on property:tcmd.suspend=2
     stop zygote
     setprop debug.sf.nobootanimation 1
 
-service tcmd /system/bin/tcmd
-    class core
-    group oem_5004 radio oem_5001 input system log camera graphics oem_5000 sdcard_r sdcard_rw audio inet bluetooth wifi compass net_bt_admin oem_9006 oem_5007 mount net_raw net_admin media shell oem_9002 nfc fm_radio qcom_diag oem_5014 cache media_rw
-    socket local_tcmd stream 0660 oem_5004 oem_5004
-    socket batch_socket stream 0600 oem_5004 oem_5004
-    oneshot
-    disabled
+#service tcmd /system/bin/tcmd
+#    class core
+#    group oem_5004 radio oem_5001 input system log camera graphics oem_5000 sdcard_r sdcard_rw #audio inet bluetooth wifi compass net_bt_admin oem_9006 oem_5007 mount net_raw net_admin media #shell oem_9002 nfc fm_radio qcom_diag oem_5014 cache media_rw
+#    socket local_tcmd stream 0660 oem_5004 oem_5004
+#    socket batch_socket stream 0600 oem_5004 oem_5004
+#    oneshot
+#    disabled
 
-service tcmdhelp /system/bin/tcmdhelp
-    class main
-    socket tcmdhelp stream 0600 oem_5004 oem_5004
-    oneshot
-    disabled
+#service tcmdhelp /system/bin/tcmdhelp
+#    class main
+#    socket tcmdhelp stream 0600 oem_5004 oem_5004
+#    oneshot
+#   disabled
 
 on property:tcmd.start_tcmdhelp=1
     start tcmdhelp
