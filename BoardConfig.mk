@@ -23,6 +23,7 @@ BOARD_VENDOR := motorola-qcom
 
 # TEMP
 BUILD_BROKEN_DUP_RULES := true
+BUILD_BROKEN_PHONY_TARGETS := true
 
 # Assert
 TARGET_OTA_ASSERT_DEVICE := victara
@@ -89,7 +90,8 @@ TARGET_LD_SHIM_LIBS := \
     /system/lib/libjustshoot.so|libshim_camera.so \
     /system/lib/libjscore.so|libshim_camera.so \
     /system/lib/libmot_sensorlistener.so|libshims_sensorlistener.so \
-    /system/vendor/lib/libmdmcutback.so|libqsap_shim.so
+    /system/vendor/lib/libmdmcutback.so|libqsap_shim.so \
+    /system/vendor/lib/libperipheral_client.so|libshim_binder.so
 
 TARGET_PROCESS_SDK_VERSION_OVERRIDE += \
     /system/bin/mediaserver=22 \
