@@ -163,8 +163,6 @@ BOARD_ROOT_EXTRA_FOLDERS := \
     persist
 
 # Power
-TARGET_HAS_LEGACY_POWER_STATS := true
-TARGET_HAS_NO_WLAN_STATS := true
 TARGET_USES_INTERACTION_BOOST := true
 
 # Qualcomm support
