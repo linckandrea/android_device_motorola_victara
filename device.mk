@@ -111,19 +111,19 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.qti.sys.fw.bservice_enable=true
 
 # Audio
-PRODUCT_PACKAGES += \
-    android.hardware.audio@2.0-impl \
-    android.hardware.audio.effect@2.0-impl \
-    android.hardware.broadcastradio@1.0-impl \
-    android.hardware.soundtrigger@2.0-impl \
-    audio.a2dp.default \
-    audio_policy.msm8974 \
-    audio.primary.msm8974 \
-    audio.r_submix.default \
-    audio.usb.default \
-    libaudio-resampler \
-    libqcomvisualizer \
-    libqcomvoiceprocessing
+#PRODUCT_PACKAGES += \
+ #   android.hardware.audio@2.0-impl \
+ #   android.hardware.audio@2.0-service \
+ #   android.hardware.audio.effect@2.0-impl \
+  #  android.hardware.audio.effect@2.0-service \
+ #   audio.a2dp.default \
+  #  audio_policy.msm8974 \
+  #  audio.primary.msm8974 \
+  #  audio.r_submix.default \
+  #  audio.usb.default \
+  #  libaudio-resampler \
+  #  libqcomvisualizer \
+  #  libqcomvoiceprocessing
 
 PRODUCT_PACKAGES += \
     mbhc.bin \
@@ -172,7 +172,7 @@ PRODUCT_PACKAGES += \
 # Display
 PRODUCT_PACKAGES += \
     android.hardware.graphics.allocator@2.0-impl \
-    android.hardware.graphics.mapper@2.0-impl \
+    android.hardware.graphics.mapper@2.0-impl-2.1 \
     android.hardware.graphics.composer@2.1-impl \
     android.hardware.graphics.memtrack@1.0-impl \
     copybit.msm8974 \
@@ -282,7 +282,6 @@ PRODUCT_PACKAGES += \
 # Seccomp
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/seccomp/mediacodec.policy:system/vendor/etc/seccomp_policy/mediacodec.policy \
-    $(LOCAL_PATH)/seccomp/mediaextractor.policy:system/vendor/etc/seccomp_policy/mediaextractor.policy
 
 # RenderScript HAL
 PRODUCT_PACKAGES += \
@@ -301,6 +300,9 @@ PRODUCT_PACKAGES += \
 # RIL Shim
 PRODUCT_PACKAGES += \
     libqsap_shim
+
+# Shipping API level (for CTS backward compatibility)
+PRODUCT_SHIPPING_API_LEVEL := 19
 
 # Thermal
 PRODUCT_COPY_FILES += \

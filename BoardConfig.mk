@@ -21,6 +21,8 @@ LOCAL_PATH := device/motorola/victara
 
 BOARD_VENDOR := motorola-qcom
 
+BUILD_BROKEN_DUP_RULES := true
+
 # Assert
 TARGET_OTA_ASSERT_DEVICE := victara
 
@@ -52,8 +54,8 @@ TARGET_USES_64_BIT_BINDER := true
 
 # Kernel
 BOARD_KERNEL_CMDLINE := console=none androidboot.hardware=qcom msm_rtb.filter=0x37 ehci-hcd.park=3 vmalloc=400M androidboot.selinux=permissive
+BOARD_KERNEL_CMDLINE += loop.max_part=7
 BOARD_KERNEL_BASE := 0x80200000
-BOARD_KERNEL_LZ4C_DT := true
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_KERNEL_SEPARATED_DT := true
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x02000000 --tags_offset 0x01e00000
@@ -61,6 +63,12 @@ LZMA_RAMDISK_TARGETS := boot,recovery
 TARGET_KERNEL_SOURCE := kernel/motorola/msm8974
 TARGET_KERNEL_CONFIG := lineageos_victara_defconfig
 BOARD_KERNEL_IMAGE_NAME := zImage
+
+# Kernel Toolchain
+ifneq ($(wildcard $(TOP_PATH)/prebuilts/gcc/$(HOST_OS)-x86/arm/arm-eabi-4.9),)
+  KERNEL_TOOLCHAIN := $(TOP_PATH)/prebuilts/gcc/$(HOST_OS)-x86/arm/arm-eabi-4.9/bin
+  KERNEL_TOOLCHAIN_PREFIX := arm-eabi-4.9-
+endif
 
 # Audio
 AUDIO_FEATURE_ENABLED_COMPRESS_VOIP := true
@@ -75,7 +83,7 @@ AUDIO_FEATURE_ENABLED_USBAUDIO := true
 BOARD_USES_ALSA_AUDIO := true
 AUDIO_FEATURE_ENABLED_FLUENCE := true
 AUDIO_FEATURE_ENABLED_PROXY_DEVICE := true
-USE_CUSTOM_AUDIO_POLICY := 1
+#USE_CUSTOM_AUDIO_POLICY := 0
 BOARD_USES_GENERIC_AUDIO := true
 TARGET_USES_QCOM_MM_AUDIO := true
 USE_XML_AUDIO_POLICY_CONF := 1
@@ -159,7 +167,7 @@ BOARD_USERDATAIMAGE_PARTITION_SIZE := 10970071040
 BOARD_CACHEIMAGE_PARTITION_SIZE := 1428234240
 BOARD_ROOT_EXTRA_FOLDERS := \
     firmware \
-    persist
+    persist 
 
 # Power
 TARGET_HAS_LEGACY_POWER_STATS := true
