@@ -14,6 +14,15 @@ vendor.voice.path.for.pcm.voip=true
 ro.config.media_vol_steps=25
 ro.config.vc_call_vol_steps=7
 
+# Acdb
+persist.audio.calfile0=/vendor/etc/acdbdata/Bluetooth_cal.acdb
+persist.audio.calfile1=/vendor/etc/acdbdata/General_cal.acdb
+persist.audio.calfile2=/vendor/etc/acdbdata/Global_cal.acdb
+persist.audio.calfile3=/vendor/etc/acdbdata/Handset_cal.acdb
+persist.audio.calfile4=/vendor/etc/acdbdata/Hdmi_cal.acdb
+persist.audio.calfile5=/vendor/etc/acdbdata/Headset_cal.acdb
+persist.audio.calfile6=/vendor/etc/acdbdata/Speaker_cal.acdb
+
 # FM maximum volume be between 0 and 8192 (0dB)
 ro.audio.fm_max_volume=5793
 
