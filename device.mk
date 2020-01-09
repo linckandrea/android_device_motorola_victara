@@ -297,6 +297,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libqsap_shim
 
+# System Properties
+$(call inherit-product, device/motorola/victara/system_prop.mk)
+
 # Thermal
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/thermal-engine-victara.conf:$(TARGET_COPY_OUT_SYSTEM)/etc/thermal-engine-victara.conf
