@@ -18,4 +18,10 @@ PRODUCT_MANUFACTURER := motorola
 # Overlay
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
+PRODUCT_ENFORCE_RRO_TARGETS := *
+
+PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += \
+    $(LOCAL_PATH)/overlay/packages/apps/Snap \
+    $(LOCAL_PATH)/overlay/lineage-sdk
+
 PRODUCT_GMS_CLIENTID_BASE := android-motorola
