@@ -1,5 +1,5 @@
 # Audio
-
+PRODUCT_PROPERTY_OVERRIDES += \
 af.fast_track_multiplier=1
 	vendor.audio_hal.period_size=192
 	persist.vendor.audio.fluence.speaker=false
