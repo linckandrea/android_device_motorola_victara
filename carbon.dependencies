@@ -17,5 +17,11 @@
     "repository": "LineageOS/android_external_bson",
     "target_path": "external/bson"
     "revision": "lineage-17.1"
-  }
+  },
+    {
+	"remote": "lineage",  
+    "repository": "LineageOS/android_packages_resources_devicesettings",
+    "target_path": "packages/resources/devicesettings"
+    "revision": "lineage-17.1"
+  }  
 ]
