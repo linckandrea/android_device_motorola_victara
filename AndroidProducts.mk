@@ -15,8 +15,8 @@
 # limitations under the License.
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/lineage_victara.mk
+    $(LOCAL_DIR)/carbon_victara.mk
 
 COMMON_LUNCH_CHOICES := \
-    lineage_victara-userdebug \
-    lineage_victara-eng
+    carbon_victara-userdebug \
+    carbon_victara-eng

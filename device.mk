@@ -167,10 +167,6 @@ PRODUCT_PACKAGES += \
     LineageActions \
     libjni_LineageActions
 
-# LiveDisplay
-PRODUCT_PACKAGES += \
-    vendor.lineage.livedisplay@2.0-service-sysfs
-
 # Media
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/media/media_profiles.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/media_profiles.xml \
@@ -318,10 +314,6 @@ PRODUCT_COPY_FILES += \
 # Torch
 PRODUCT_PACKAGES += \
     Torch
-
-# Trust
-PRODUCT_PACKAGES += \
-    vendor.lineage.trust@1.0-service
 
 # USB
 PRODUCT_PACKAGES += \

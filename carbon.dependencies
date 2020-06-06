@@ -1,0 +1,21 @@
+  
+[
+  {
+	"remote": "lineage",
+    "repository": "LineageOS/android_kernel_motorola_msm8974",
+    "target_path": "kernel/motorola/msm8974"
+    "revision": "lineage-17.1"
+  },
+  {
+	"remote": "lineage",
+    "repository": "LineageOS/android_system_qcom",
+    "target_path": "system/qcom"
+    "revision": "lineage-17.1"
+  },
+  {
+	"remote": "lineage",  
+    "repository": "LineageOS/android_external_bson",
+    "target_path": "external/bson"
+    "revision": "lineage-17.1"
+  }
+]
