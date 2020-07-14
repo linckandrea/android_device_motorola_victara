@@ -57,11 +57,6 @@ vendor/lib/soundfx/libqcreverb.so
 # Battery
 bin/hvdcp:vendor/bin/hvdcp
 
-# Bluetooth
-bin/btnvtool:vendor/bin/btnvtool
-bin/hci_qcomm_init:vendor/bin/hci_qcomm_init
-vendor/lib/libbtnv.so
-
 # Camera
 bin/mm-qcamera-daemon:vendor/bin/mm-qcamera-daemon
 etc/firmware/cpp_firmware_v1_1_1.fw
