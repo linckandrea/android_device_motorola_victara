@@ -18,6 +18,10 @@
 # Inherit proprietary vendor
 $(call inherit-product, vendor/motorola/victara/victara-vendor.mk)
 
+# Android GO optimizations
+    PRODUCT_MINIMIZE_JAVA_DEBUG_INFO := true
+    PRODUCT_SYSTEM_SERVER_COMPILER_FILTER := speed-profile
+    
 # APEX
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/ld.config.txt:$(TARGET_COPY_OUT_SYSTEM)/etc/swcodec/ld.config.txt
