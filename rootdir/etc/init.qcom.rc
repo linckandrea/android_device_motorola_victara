@@ -26,6 +26,7 @@
 #
 
 import /vendor/etc/init/hw/init.target.rc
+import /vendor/etc/init/hw/init.pop.rc
 
 on early-init
     mount debugfs debugfs /sys/kernel/debug
@@ -513,17 +514,9 @@ on enable-low-power
     write /sys/devices/system/cpu/cpufreq/interactive/timer_slack 30000
     write /dev/cpuctl/cpu.notify_on_migrate 1
 
-    # CPU Boost driver
-
-    write /sys/module/cpu_boost/parameters/boost_ms 20
-    write /sys/module/cpu_boost/parameters/sync_threshold 1728000
-    write /sys/module/cpu_boost/parameters/input_boost_freq 1497600
-    write /sys/module/cpu_boost/parameters/input_boost_ms 40
-
     # mpdecision
     setprop ro.qualcomm.perf.cores_online 2
     rm /data/system/default_values
-    start mpdecision
 
 on charger
     write /sys/module/lpm_levels/enable_low_power/l2 2
@@ -540,10 +533,10 @@ on charger
     write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor "powersave"
     write /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor "powersave"
     write /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor "powersave"
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 300000
-    write /sys/devices/system/cpu/cpu1/cpufreq/scaling_min_freq 300000
-    write /sys/devices/system/cpu/cpu2/cpufreq/scaling_min_freq 300000
-    write /sys/devices/system/cpu/cpu3/cpufreq/scaling_min_freq 300000
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 268800
+    write /sys/devices/system/cpu/cpu1/cpufreq/scaling_min_freq 268800
+    write /sys/devices/system/cpu/cpu2/cpufreq/scaling_min_freq 268800
+    write /sys/devices/system/cpu/cpu3/cpufreq/scaling_min_freq 268800
     write /sys/module/msm_thermal/core_control/enabled 1
     write /sys/devices/system/cpu/cpu1/online 0
     write /sys/devices/system/cpu/cpu2/online 0

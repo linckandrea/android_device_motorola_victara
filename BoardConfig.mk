@@ -112,6 +112,8 @@ BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x02000000 --tags_offset 0x01e00000
 LZMA_RAMDISK_TARGETS := boot,recovery
 TARGET_KERNEL_CONFIG := lineageos_victara_defconfig
 TARGET_KERNEL_SOURCE := kernel/motorola/msm8974
+TARGET_KERNEL_CROSS_COMPILE_PREFIX := arm-eabi-
+KERNEL_TOOLCHAIN := $(PWD)/prebuilts/gcc/linux-x86/arm/TC/bin
 
 # Partitions
 BOARD_BOOTIMAGE_PARTITION_SIZE := 10485760

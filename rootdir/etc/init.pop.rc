@@ -1,0 +1,78 @@
+on property:sys.boot_completed=1
+
+    # Ensure mpdecision is stopped
+    stop mpdecision
+
+    # Be sure that all cpus are online
+    # CPU0
+    write /sys/devices/system/cpu/cpu0/online 1
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq 2457600
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 268800
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor interactive
+
+    # CPU1
+    write /sys/devices/system/cpu/cpu1/online 1
+    write /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq 2457600
+    write /sys/devices/system/cpu/cpu1/cpufreq/scaling_min_freq 268800
+    write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor interactive
+
+    # CPU2
+    write /sys/devices/system/cpu/cpu2/online 1
+    write /sys/devices/system/cpu/cpu2/cpufreq/scaling_max_freq 2457600
+    write /sys/devices/system/cpu/cpu2/cpufreq/scaling_min_freq 268800
+    write /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor interactive
+
+    # CPU3
+    write /sys/devices/system/cpu/cpu3/online 1
+    write /sys/devices/system/cpu/cpu3/cpufreq/scaling_max_freq 2457600
+    write /sys/devices/system/cpu/cpu3/cpufreq/scaling_min_freq 268800
+    write /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor interactive
+    
+    # Tune interactive governor
+    write /sys/devices/system/cpu/cpufreq/interactive/above_hispeed_delay "30000 1190400:50000 1497600:30000"
+    write /sys/devices/system/cpu/cpufreq/interactive/go_hispeed_load 99
+    write /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq 1190400
+    write /sys/devices/system/cpu/cpufreq/interactive/boostpulse_duration 0
+    write /sys/devices/system/cpu/cpufreq/interactive/io_is_busy 1
+    write /sys/devices/system/cpu/cpufreq/interactive/target_loads "99 422400:18 652800:42 729600:70 883200:19 960000:69 1497600:95"
+    write /sys/devices/system/cpu/cpufreq/interactive/min_sample_time 30000
+    write /sys/devices/system/cpu/cpufreq/interactive/max_freq_hysteresis 100000
+    write /sys/devices/system/cpu/cpufreq/interactive/timer_rate 20000
+    write /sys/devices/system/cpu/cpufreq/interactive/timer_slack -1
+    
+    # Multicore power saving
+    write /sys/devices/system/cpu/sched_mc_power_savings 0
+
+    # CPU Input Boost (enabled by default)
+    write /sys/kernel/cpu_input_boost/ib_freqs "1190400 1497600"
+    write /sys/kernel/cpu_input_boost/ib_duration_ms 1400
+    write /sys/kernel/cpu_input_boost/enabled 1
+
+    # IO
+    write /sys/block/mmcblk0/bdi/read_ahead_kb 512
+    write /sys/block/mmcblk0/queue/scheduler maple
+    write /sys/block/mmcblk0/queue/iosched/sleep_latency_multiple 10
+    write /sys/block/mmcblk0/queue/iosched/sync_write_expire 200
+    write /sys/block/mmcblk0/queue/iosched/sync_read_expire 50
+    write /sys/block/mmcblk0/queue/iosched/async_write_expire 250
+    write /sys/block/mmcblk0/queue/iosched/async_read_expire 100
+
+    # Prevent mmc from scaling its clk down when performing writes
+    write /sys/class/mmc_host/mmc0/clk_scaling/scale_down_in_low_wr_load 1
+    
+    # Power efficient workqueues
+    chmod 644 /sys/module/workqueue/parameters/power_efficient
+    write /sys/module/workqueue/parameters/power_efficient "Y"
+    
+    # Reduce vibration value
+    write /sys/vibrator/pwmvalue 65
+    
+    # Disable KSM by default
+    write /sys/kernel/mm/ksm/run 0 
+    write /sys/kernel/mm/ksm/sleep_millisecs 1500
+    write /sys/kernel/mm/ksm/pages_to_scan 256
+    write /sys/kernel/mm/ksm/deferred_timer 1
+    
+    # Selinux nodes, hide permissive state
+    chmod 0640 /sys/fs/selinux/enforce
+    chmod 0440 /sys/fs/selinux/policy
