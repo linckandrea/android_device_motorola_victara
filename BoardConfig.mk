@@ -113,6 +113,10 @@ LZMA_RAMDISK_TARGETS := boot,recovery
 TARGET_KERNEL_CONFIG := lineageos_victara_defconfig
 TARGET_KERNEL_SOURCE := kernel/motorola/msm8974
 
+# Inline kernel building (use cortex-a15-gcc7)
+KERNEL_TOOLCHAIN := $(TOP_PATH)/prebuilts/custom-gcc/Q7.3-a15-neon/bin
+KERNEL_TOOLCHAIN_PREFIX := arm-eabi-
+
 # Partitions
 BOARD_BOOTIMAGE_PARTITION_SIZE := 10485760
 BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
