@@ -498,23 +498,22 @@ on enable-low-power
 
     # Interative governor
 
-    write /sys/devices/system/cpu/cpufreq/interactive/above_hispeed_delay "20000 1400000:40000 1700000:20000"
-    write /sys/devices/system/cpu/cpufreq/interactive/go_hispeed_load 90
+    write /sys/devices/system/cpu/cpufreq/interactive/above_hispeed_delay "30000 1190400:50000 1497600:30000"
+    write /sys/devices/system/cpu/cpufreq/interactive/go_hispeed_load 99
     write /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq 1190400
     write /sys/devices/system/cpu/cpufreq/interactive/io_is_busy 1
-    write /sys/devices/system/cpu/cpufreq/interactive/target_loads "85 1500000:90 1800000:70"
-    write /sys/devices/system/cpu/cpufreq/interactive/min_sample_time 40000
-    write /sys/devices/system/cpu/cpufreq/interactive/timer_rate 30000
+    write /sys/devices/system/cpu/cpufreq/interactive/target_loads "99 422400:18 652800:42 729600:70 883200:19 960000:69 1497600:95"
+    write /sys/devices/system/cpu/cpufreq/interactive/min_sample_time 30000
+    write /sys/devices/system/cpu/cpufreq/interactive/timer_rate 20000
     write /sys/devices/system/cpu/cpufreq/interactive/max_freq_hysteresis 100000
-    write /sys/devices/system/cpu/cpufreq/interactive/timer_slack 30000
+    write /sys/devices/system/cpu/cpufreq/interactive/timer_slack -1
+    write /sys/devices/system/cpu/cpufreq/interactive/align_windows 1
     write /dev/cpuctl/cpu.notify_on_migrate 1
 
     # CPU Boost driver
 
-    write /sys/module/cpu_boost/parameters/boost_ms 20
-    write /sys/module/cpu_boost/parameters/sync_threshold 1728000
-    write /sys/module/cpu_boost/parameters/input_boost_freq 1497600
-    write /sys/module/cpu_boost/parameters/input_boost_ms 40
+    write /sys/module/cpu_boost/parameters/input_boost_freq "0:1190400 1:1190400"
+    write /sys/module/cpu_boost/parameters/input_boost_ms 80
 
     # mpdecision
     setprop ro.qualcomm.perf.cores_online 2
