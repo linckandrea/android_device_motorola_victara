@@ -568,6 +568,14 @@ on property:apexd.status=ready
     mount none /system/etc/swcodec/ld.config.txt /apex/com.android.media.swcodec/etc/ld.config.txt bind
 
 on property:sys.boot_completed=1
+	setprop sys.io.scheduler bfq
+    write /sys/block/mmcblk0/queue/scheduler bfq
+    write /sys/block/mmcblk0/bdi/read_ahead_kb 256
+    write /sys/block/mmcblk0/queue/nomerges 1
+    write /sys/block/mmcblk0/queue/rq_affinity 2
+    write /sys/block/mmcblk0/queue/add_random 0
+    write /sys/block/mmcblk0/bdi/min_ratio 5
+    write /sys/block/mmcblk0/queue/iosched/slice_idle 0
 
     # Prevent mmc from scaling its clk down when performing writes
     write /sys/class/mmc_host/mmc0/clk_scaling/scale_down_in_low_wr_load 1
