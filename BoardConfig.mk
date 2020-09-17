@@ -116,7 +116,7 @@ TARGET_KERNEL_CONFIG := lineageos_victara_defconfig
 TARGET_KERNEL_SOURCE := kernel/motorola/msm8974
 
 # Inline kernel building (use linaro gcc7)
-KERNEL_TOOLCHAIN := $(PWD)/prebuilts/custom-gcc/linux-x86/arm/arm-eabi-linaro-7/bin
+KERNEL_TOOLCHAIN := $(PWD)/prebuilts/custom-gcc/arm-eabi-linaro-7/bin
 KERNEL_TOOLCHAIN_PREFIX := arm-eabi-
 
 # Partitions
