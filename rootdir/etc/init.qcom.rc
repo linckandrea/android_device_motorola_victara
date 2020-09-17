@@ -183,6 +183,10 @@ on boot
     write /sys/class/kgsl/kgsl-3d0/wake_timeout 250
 
 on post-fs
+    setprop sys.io.scheduler noop
+    # Prevent mmc from scaling its clk down when performing writes
+    write /sys/class/mmc_host/mmc0/clk_scaling/scale_down_in_low_wr_load 1
+
     # avoid USB crash
     setprop persist.adb.nonblocking_ffs 0
     setprop ro.adb.nonblocking_ffs 0
@@ -449,7 +453,15 @@ on enable-low-power
     write /sys/devices/system/cpu/cpu1/online 1
     write /sys/devices/system/cpu/cpu2/online 1
     write /sys/devices/system/cpu/cpu3/online 1
-    write /sys/class/devfreq/qcom,cpubw.41/governor cpubw_hwmon
+	write /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq 1958400
+	write /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq 1958400
+	write /sys/devices/system/cpu/cpu2/cpufreq/scaling_max_freq 1958400
+	write /sys/devices/system/cpu/cpu3/cpufreq/scaling_max_freq 1958400
+	write /sys/devices/system/cpu/cpu1/cpufreq/scaling_min_freq 300000
+	write /sys/devices/system/cpu/cpu2/cpufreq/scaling_min_freq 300000
+	write /sys/devices/system/cpu/cpu3/cpufreq/scaling_min_freq 300000
+	write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 300000
+	write /sys/class/devfreq/qcom,cpubw.41/governor cpubw_hwmon
 
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor interactive
     write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor interactive
@@ -498,27 +510,35 @@ on enable-low-power
 
     # Interative governor
 
-    write /sys/devices/system/cpu/cpufreq/interactive/above_hispeed_delay "30000 1190400:50000 1497600:30000"
-    write /sys/devices/system/cpu/cpufreq/interactive/go_hispeed_load 99
-    write /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq 1190400
-    write /sys/devices/system/cpu/cpufreq/interactive/io_is_busy 1
-    write /sys/devices/system/cpu/cpufreq/interactive/target_loads "99 422400:18 652800:42 729600:70 883200:19 960000:69 1497600:95"
-    write /sys/devices/system/cpu/cpufreq/interactive/min_sample_time 30000
-    write /sys/devices/system/cpu/cpufreq/interactive/timer_rate 20000
-    write /sys/devices/system/cpu/cpufreq/interactive/max_freq_hysteresis 100000
-    write /sys/devices/system/cpu/cpufreq/interactive/timer_slack -1
-    write /sys/devices/system/cpu/cpufreq/interactive/align_windows 1
-    write /dev/cpuctl/cpu.notify_on_migrate 1
+	write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "interactive"
+	write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor "interactive"
+	write /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor "interactive"
+	write /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor "interactive"
+	write /sys/devices/system/cpu/cpufreq/interactive/above_hispeed_delay "20000 1400000:40000 1700000:20000"
+	write /sys/devices/system/cpu/cpufreq/interactive/go_hispeed_load 70
+	write /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq 1190400
+	write /sys/devices/system/cpu/cpufreq/interactive/io_is_busy 1
+	write /sys/devices/system/cpu/cpufreq/interactive/target_loads "85 1300000:35 1500000:50 1700000:75 1800000:95"
+	write /sys/devices/system/cpu/cpufreq/interactive/min_sample_time 40000
+	write /sys/devices/system/cpu/cpufreq/interactive/max_freq_hysteresis 100000
+	write /sys/devices/system/cpu/cpufreq/interactive/timer_rate 30000
+	write /sys/devices/system/cpu/cpufreq/interactive/timer_slack -1
 
-    # CPU Boost driver
+    # Sultan CPU Boost driver
+	write /sys/kernel/cpu_input_boost/ib_freqs "1190400 1497600"
+	write /sys/kernel/cpu_input_boost/ib_duration_ms 1400
+	write /sys/kernel/cpu_input_boost/enabled 1
 
-    write /sys/module/cpu_boost/parameters/input_boost_freq "0:1190400 1:1190400"
-    write /sys/module/cpu_boost/parameters/input_boost_ms 80
+	# CAF CPU Input Boost (disabled by default)
+	write /sysy/module/cpu_boost/parameters/input_boost_enabled 0
+	write /sys/module/cpu_boost/parameters/boost_ms 0
+	write /sys/module/cpu_boost/parameters/sync_threshold 0
+	write /sys/module/cpu_boost/parameters/input_boost_freq 1190400
+	write /sys/module/cpu_boost/parameters/input_boost_ms 1500
 
-    # mpdecision
+	# mpdecision
     setprop ro.qualcomm.perf.cores_online 2
     rm /data/system/default_values
-    start mpdecision
 
 on charger
     write /sys/module/lpm_levels/enable_low_power/l2 2
@@ -567,14 +587,6 @@ on property:apexd.status=ready
     mount none /system/etc/swcodec/ld.config.txt /apex/com.android.media.swcodec/etc/ld.config.txt bind
 
 on property:sys.boot_completed=1
-	setprop sys.io.scheduler bfq
-    write /sys/block/mmcblk0/queue/scheduler bfq
-    write /sys/block/mmcblk0/bdi/read_ahead_kb 256
-    write /sys/block/mmcblk0/queue/nomerges 1
-    write /sys/block/mmcblk0/queue/rq_affinity 2
-    write /sys/block/mmcblk0/queue/add_random 0
-    write /sys/block/mmcblk0/bdi/min_ratio 5
-    write /sys/block/mmcblk0/queue/iosched/slice_idle 0
+	setprop sys.io.scheduler "zen"
 
-    # Prevent mmc from scaling its clk down when performing writes
-    write /sys/class/mmc_host/mmc0/clk_scaling/scale_down_in_low_wr_load 1
+
