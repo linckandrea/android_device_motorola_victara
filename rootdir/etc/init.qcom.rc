@@ -26,6 +26,7 @@
 #
 
 import /vendor/etc/init/hw/init.target.rc
+import /vendor/etc/init/hw/init.spectrum.rc
 
 on early-init
     mount debugfs debugfs /sys/kernel/debug
@@ -588,5 +589,9 @@ on property:apexd.status=ready
 
 on property:sys.boot_completed=1
 	setprop sys.io.scheduler "zen"
+	write /sys/module/adreno_idler/parameters/adreno_idler_active 0
+	write /sys/module/adreno_idler/parameters/adreno_idler_downdifferential 20
+	write /sys/module/adreno_idler/parameters/adreno_idler_idlewait 20
+	write /sys/module/adreno_idler/parameters/adreno_idler_idleworkload 6000
 
 
