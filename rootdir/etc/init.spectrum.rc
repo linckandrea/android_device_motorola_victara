@@ -31,30 +31,33 @@ on property:persist.spectrum.profile=0
 	chown system system /sys/devices/system/cpu/cpu3/cpufreq/scaling_min_freq
 	chmod 0664 /sys/devices/system/cpu/cpu3/cpufreq/scaling_min_freq
 
-	write /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq 1958400
-	write /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq 1958400
-	write /sys/devices/system/cpu/cpu2/cpufreq/scaling_max_freq 1958400
-	write /sys/devices/system/cpu/cpu3/cpufreq/scaling_max_freq 1958400
-	write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "interactive"
-	write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor "interactive"
-	write /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor "interactive"
-	write /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor "interactive"
-	write /sys/devices/system/cpu/cpufreq/interactive/above_hispeed_delay "20000 1400000:40000 1700000:20000"
-	write /sys/devices/system/cpu/cpufreq/interactive/go_hispeed_load 70
-	write /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq 1190400
-	write /sys/devices/system/cpu/cpufreq/interactive/io_is_busy 1
-	write /sys/devices/system/cpu/cpufreq/interactive/target_loads "85 1300000:35 1500000:50 1700000:75 1800000:95"
-	write /sys/devices/system/cpu/cpufreq/interactive/min_sample_time 40000
-	write /sys/devices/system/cpu/cpufreq/interactive/max_freq_hysteresis 100000
-	write /sys/devices/system/cpu/cpufreq/interactive/timer_rate 30000
-	write /sys/devices/system/cpu/cpufreq/interactive/timer_slack -1
-	write /sys/kernel/cpu_input_boost/ib_freqs "1190400 1497600"
-	write /sys/kernel/cpu_input_boost/ib_duration_ms 1400
-	write /sys/kernel/cpu_input_boost/enabled 1
+	write /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq 2265600
+	write /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq 2265600
+	write /sys/devices/system/cpu/cpu2/cpufreq/scaling_max_freq 2265600
+	write /sys/devices/system/cpu/cpu3/cpufreq/scaling_max_freq 2265600
+	write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor blu_active
+	write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor blu_active
+	write /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor blu_active
+	write /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor blu_active
+	write /sys/devices/system/cpu/cpufreq/blu_active/hispeed_freq 1497600
+	write /sys/devices/system/cpu/cpufreq/blu_active/go_hispeed_load 90
+	write /sys/devices/system/cpu/cpufreq/blu_active/min_sample_time 60000
+	write /sys/devices/system/cpu/cpufreq/blu_active/timer_rate 30000
+	write /sys/devices/system/cpu/cpufreq/blu_active/above_hispeed_delay "20000 1400000:40000 1700000:20000"
+	write /sys/devices/system/cpu/cpufreq/blu_active/boostpulse_duration 500000
+	write /sys/devices/system/cpu/cpufreq/blu_active/timer_slack 30000
+	write /sys/devices/system/cpu/cpufreq/blu_active/io_is_busy 1
+	write /sys/devices/system/cpu/cpufreq/blu_active/target_loads "85 1500000:90 1800000:70"
+	write /sys/devices/system/cpu/cpufreq/blu_active/input_boost_freq 1190400
+	write /sys/devices/system/cpu/cpufreq/blu_active/max_freq_hysteresis 100000
+	write /sys/devices/system/cpu/cpufreq/blu_active/fastlane 0
+	write /sys/devices/system/cpu/cpufreq/blu_active/fastlane_threshold 50
+	
 	write /sys/module/adreno_idler/parameters/adreno_idler_active 0
-	write /sys/module/adreno_idler/parameters/adreno_idler_downdifferential 20
-	write /sys/module/adreno_idler/parameters/adreno_idler_idlewait 20
-	write /sys/module/adreno_idler/parameters/adreno_idler_idleworkload 6000
+	write /sys/kernel/cpu_input_boost/enabled 0
+	
+	setprop sys.io.scheduler "zen"
+	write /sys/block/mmcblk0/queue/scheduler zen
 
 # Performance (more aggressive interactive and input boost)
 on property:persist.spectrum.profile=1
@@ -75,10 +78,10 @@ on property:persist.spectrum.profile=1
 	chown system system /sys/devices/system/cpu/cpu3/cpufreq/scaling_min_freq
 	chmod 0664 /sys/devices/system/cpu/cpu3/cpufreq/scaling_min_freq
 
-	write /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq 1958400
-	write /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq 1958400
-	write /sys/devices/system/cpu/cpu2/cpufreq/scaling_max_freq 1958400
-	write /sys/devices/system/cpu/cpu3/cpufreq/scaling_max_freq 1958400
+	write /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq 2265600
+	write /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq 2265600
+	write /sys/devices/system/cpu/cpu2/cpufreq/scaling_max_freq 2265600
+	write /sys/devices/system/cpu/cpu3/cpufreq/scaling_max_freq 2265600
 	write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor interactive
 	write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor interactive
 	write /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor interactive
@@ -96,6 +99,9 @@ on property:persist.spectrum.profile=1
 	write /sys/kernel/cpu_input_boost/ib_duration_ms 1400
 	write /sys/kernel/cpu_input_boost/enabled 1
 	write /sys/module/adreno_idler/parameters/adreno_idler_active 0
+	
+	setprop sys.io.scheduler "zen"
+	write /sys/block/mmcblk0/queue/scheduler zen
 
 # Battery
 on property:persist.spectrum.profile=2
@@ -125,7 +131,11 @@ chown system system /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
 	write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor smartmax
 	write /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor smartmax
 	write /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor smartmax
+	write /sys/kernel/cpu_input_boost/enabled 0
 	write /sys/module/adreno_idler/parameters/adreno_idler_active 1
+	
+	setprop sys.io.scheduler "zen"
+	write /sys/block/mmcblk0/queue/scheduler zen
 
 # Gaming
 on property:persist.spectrum.profile=3
@@ -150,20 +160,27 @@ on property:persist.spectrum.profile=3
 	write /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq 2457600
 	write /sys/devices/system/cpu/cpu2/cpufreq/scaling_max_freq 2457600
 	write /sys/devices/system/cpu/cpu3/cpufreq/scaling_max_freq 2457600
-	write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor interactive
-	write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor interactive
-	write /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor interactive
-	write /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor interactive
-	write /sys/devices/system/cpu/cpufreq/interactive/above_hispeed_delay "20000 1400000:40000 1700000:20000"
-	write /sys/devices/system/cpu/cpufreq/interactive/go_hispeed_load 35
-	write /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq 1190400
-	write /sys/devices/system/cpu/cpufreq/interactive/io_is_busy 1
-	write /sys/devices/system/cpu/cpufreq/interactive/target_loads "45 1700000:40 1900000:50"
-	write /sys/devices/system/cpu/cpufreq/interactive/min_sample_time 40000
-	write /sys/devices/system/cpu/cpufreq/interactive/max_freq_hysteresis 100000
-	write /sys/devices/system/cpu/cpufreq/interactive/timer_rate 30000
-	write /sys/devices/system/cpu/cpufreq/interactive/timer_slack -1
+	write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor blu_active
+	write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor blu_active
+	write /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor blu_active
+	write /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor blu_active
+	/sys/devices/system/cpu/cpufreq/blu_active/hispeed_freq 1497600
+	/sys/devices/system/cpu/cpufreq/blu_active/go_hispeed_load 90
+	/sys/devices/system/cpu/cpufreq/blu_active/min_sample_time 60000
+	/sys/devices/system/cpu/cpufreq/blu_active/timer_rate 30000
+	/sys/devices/system/cpu/cpufreq/blu_active/above_hispeed_delay "20000 1400000:40000 1700000:20000"
+	/sys/devices/system/cpu/cpufreq/blu_active/boostpulse_duration 500000
+	/sys/devices/system/cpu/cpufreq/blu_active/timer_slack 30000
+	/sys/devices/system/cpu/cpufreq/blu_active/io_is_busy 1
+	/sys/devices/system/cpu/cpufreq/blu_active/target_loads "85 1500000:90 1800000:70"
+	/sys/devices/system/cpu/cpufreq/blu_active/input_boost_freq 1190400
+	/sys/devices/system/cpu/cpufreq/blu_active/max_freq_hysteresis 100000
+	/sys/devices/system/cpu/cpufreq/blu_active/fastlane 0
+	/sys/devices/system/cpu/cpufreq/blu_active/fastlane_threshold 50
 	write /sys/kernel/cpu_input_boost/ib_freqs "1497600 1497600"
 	write /sys/kernel/cpu_input_boost/ib_duration_ms 1400
 	write /sys/kernel/cpu_input_boost/enabled 1
 	write /sys/module/adreno_idler/parameters/adreno_idler_active 0
+	
+	setprop sys.io.scheduler "noop"
+	write /sys/block/mmcblk0/queue/scheduler noop
