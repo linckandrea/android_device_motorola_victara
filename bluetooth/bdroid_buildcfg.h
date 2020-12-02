@@ -1,6 +1,11 @@
 /*
+<<<<<<< HEAD
  * Copyright (C) 2014 The CyanogenMod Project <http://www.cyanogenmod.org>
  * Copyright (C) 2020 The LineageOS Project <https://www.lineageos.org>
+=======
+ * Copyright (C) 2014 The CyanogenMod Project
+ *               2020 The LineageOS Project
+>>>>>>> 9b65d1ec... m8: bluetooth: Undef BLUETOOTH_QTI_SW
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,7 +23,6 @@
 #ifndef _BDROID_BUILDCFG_H
 #define _BDROID_BUILDCFG_H
 
-#define BLUETOOTH_QTI_SW                TRUE
 // Enables interleaved scan
 #define BTA_HOST_INTERLEAVE_SEARCH TRUE
 #define BTM_DEF_LOCAL_NAME              "Moto X 2014"
