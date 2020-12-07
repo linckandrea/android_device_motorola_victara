@@ -1,3 +1,6 @@
 # Motorola service properties
 type atvc_prop, property_type;
 type timekeep_prop, property_type;
+
+# Needed for the kernel module loading script
+type public_vendor_system_prop, property_type;
