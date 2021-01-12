@@ -18,12 +18,12 @@ cc_binary {
     name: "android.hardware.light@2.0-service.victara",
     proprietary: true,
     init_rc: ["android.hardware.light@2.0-service.victara.rc"],
+    vintf_fragments: ["android.hardware.light@2.0-service.victara.xml"],
     srcs: ["service.cpp", "Light.cpp"],
     shared_libs: [
         "libhardware",
         "libhidlbase",
         "liblog",
-        "libhwbinder",
         "libutils",
         "android.hardware.light@2.0",
     ],
