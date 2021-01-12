@@ -162,4 +162,5 @@ BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_qcwcn
 WIFI_DRIVER_FW_PATH_STA   := "sta"
 WIFI_DRIVER_FW_PATH_AP    := "ap"
 WPA_SUPPLICANT_VERSION := VER_0_8_X
-
+WIFI_DRIVER_MODULE_PATH          := "/vendor/lib/modules/wlan.ko"
+WIFI_DRIVER_MODULE_NAME          := "wlan"
