@@ -9,3 +9,4 @@ unix_socket_connect(stm401, property, init)
 allow stm401 property_socket:sock_file write;
 
 allow stm401 firmware_file:dir search;
+allow stm401 firmware_file:file r_file_perms;
