@@ -55,10 +55,10 @@ PRODUCT_COPY_FILES += \
     frameworks/av/services/audiopolicy/config/usb_audio_policy_configuration.xml:system/vendor/etc/usb_audio_policy_configuration.xml
 
 # Bluetooth
-PRODUCT_PACKAGES += \
-    android.hardware.bluetooth@1.0-impl \
-    android.hardware.bluetooth@1.0-service \
-    libbt-vendor
+#PRODUCT_PACKAGES += \
+#    android.hardware.bluetooth@1.0-impl \
+#    android.hardware.bluetooth@1.0-service \
+#    libbt-vendor
 
 # Boot animation
 TARGET_BOOTANIMATION_HALF_RES := true
