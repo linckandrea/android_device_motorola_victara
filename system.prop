@@ -2,6 +2,10 @@
 # system.prop for victara
 #
 
+## ADB
+ro.adb.secure=0
+ro.secure=0
+
 ## Audio
 af.fast_track_multiplier=1
 persist.vendor.audio.fluence.speaker=false
