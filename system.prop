@@ -17,6 +17,9 @@ vendor.voice.path.for.pcm.voip=true
 
 ## Bluetooth
 vendor.qcom.bluetooth.soc=smd
+bluetooth.hfp.client=1
+ro.qualcomm.bluetooth.sap=false
+
 
 ## Camera
 camera2.portability.force_api=1
