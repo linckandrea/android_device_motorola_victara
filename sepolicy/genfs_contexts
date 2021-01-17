@@ -1,3 +1,23 @@
 genfscon proc /sys/vm/swappiness                      u:object_r:proc_swap:s0
 genfscon sysfs /devices/soc.0/qpnp-rtc-8/             u:object_r:sysfs_rtc:s0
 genfscon proc /last_kmsg                              u:object_r:proc_last_kmsg:s0
+
+
+# Sysfs nodes
+genfscon sysfs /devices/fd510000.gpio/gpio/gpio79    u:object_r:sysfs_adspd:s0
+genfscon sysfs /devices/fd510000.gpio/gpio/gpio124   u:object_r:sysfs_adspd:s0
+genfscon sysfs /devices/fd510000.gpio/gpio/gpio125   u:object_r:sysfs_adspd:s0
+genfscon sysfs /devices/fe02c000.sound/sound/card0   u:object_r:sysfs_adspd:s0
+genfscon sysfs /devices/f9924000.i2c/i2c-2/2-0048    u:object_r:sysfs_thermal:s0
+genfscon sysfs /devices/fd510000.gpio/gpio/gpio144   u:object_r:sysfs_thermal:s0
+genfscon sysfs /devices/qpnp-charger-ed24c400        u:object_r:sysfs_thermal:s0
+genfscon sysfs /devices/virtual/net/rmnet0           u:object_r:sysfs_net:s0
+genfscon sysfs /class/input                          u:object_r:sysfs_input:s0
+
+# Misc sysfs nodes
+genfscon sysfs /devices/virtual/diag/diag            u:object_r:sysfs_virt_diag:s0
+genfscon sysfs /module/qpnp_bms/parameters           u:object_r:sysfs_bms:s0
+genfscon sysfs /module/qpnp_charger/parameters           u:object_r:sysfs_bms:s0
+genfscon sysfs /module/msm_show_resume_irq/parameters u:object_r:sysfs_irq_debug:s0
+genfscon sysfs /module/dwc3_msm/parameters           u:object_r:sysfs_dwc_param:s0
+genfscon sysfs /module/hci_uart/parameters           u:object_r:sysfs_hci_param:s0

@@ -23,17 +23,9 @@
 
 /sys/devices/c55_ctrl                           u:object_r:sysfs_adspd:s0
 /sys/devices/fdb00000.qcom,kgsl-3d0/kgsl/kgsl-3d0/gpuclk        u:object_r:sysfs_thermal:s0
-/sys/devices/fd510000.gpio/gpio/gpio79(/.*)?    u:object_r:sysfs_adspd:s0
-/sys/devices/fd510000.gpio/gpio/gpio124(/.*)?   u:object_r:sysfs_adspd:s0
-/sys/devices/fd510000.gpio/gpio/gpio125(/.*)?   u:object_r:sysfs_adspd:s0
-/sys/devices/fe02c000.sound/sound/card0(/.*)?   u:object_r:sysfs_adspd:s0
-/sys/devices/f9924000.i2c/i2c-2/2-0048(/.*)?    u:object_r:sysfs_thermal:s0
-/sys/devices/fd510000.gpio/gpio/gpio144(/.*)?   u:object_r:sysfs_thermal:s0
-/sys/devices/qpnp-charger-ed24c400(/.*)?        u:object_r:sysfs_thermal:s0
 /sys/devices/qpnp-bms-(.*)?/power_supply/bms(/.*)?  u:object_r:sysfs_power:s0
-/sys/devices/virtual/net/rmnet0(/.*)?           u:object_r:sysfs_net:s0
 /sys/power/autosleep                            u:object_r:sysfs_power:s0
-/sys/class/input(/.*)?                          u:object_r:sysfs_input:s0
+
 
 /system/vendor/bin/adspd                        u:object_r:adspd_exec:s0
 /system/vendor/bin/thermal-engine               u:object_r:thermal-engine_exec:s0
@@ -45,14 +37,6 @@
 
 # Gatekeeper
 /system/vendor/bin/hw/android\.hardware\.gatekeeper@1\.0-service\.software           u:object_r:hal_gatekeeper_default_exec:s0
-
-# Misc sysfs nodes
-/sys/devices/virtual/diag/diag(/.*)            u:object_r:sysfs_virt_diag:s0
-/sys/module/qpnp_bms/parameters(/.*)           u:object_r:sysfs_bms:s0
-/sys/module/qpnp_charger/parameters(/.*)           u:object_r:sysfs_bms:s0
-/sys/module/msm_show_resume_irq/parameters(/.*) u:object_r:sysfs_irq_debug:s0
-/sys/module/dwc3_msm/parameters(/.*)           u:object_r:sysfs_dwc_param:s0
-/sys/module/hci_uart/parameters(/.*)           u:object_r:sysfs_hci_param:s0
 
 # DRM
 /(vendor|system/vendor)/bin/hw/android\.hardware\.drm@1\.2-service\.clearkey                u:object_r:hal_drm_clearkey_exec:s0
