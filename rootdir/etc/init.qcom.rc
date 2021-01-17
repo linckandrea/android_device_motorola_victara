@@ -48,7 +48,7 @@ on early-init
 
 on fs
     wait /dev/block/platform/${ro.boot.bootdevice}
-    symlink /dev/block/platform/${ro.boot.bootdevice} /dev/block/bootdevicevendor
+    symlink /dev/block/platform/${ro.boot.bootdevice} /dev/block/bootdevice
 
 on early-boot
     # set RLIMIT_MEMLOCK to 64MB
