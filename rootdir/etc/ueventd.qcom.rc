@@ -268,8 +268,8 @@
 /dev/fb_quickdraw         0660  system     graphics
 
 # Partitions
-/dev/block/platform/msm_sdcc.1/by-name/hob          0660 root radio
-/dev/block/platform/msm_sdcc.1/by-name/dhob         0660 root radio
-/dev/block/platform/msm_sdcc.1/by-name/clogo        0660 root oem_5004
-/dev/block/platform/msm_sdcc.1/by-name/cid          0660 root oem_5014
-/dev/block/platform/msm_sdcc.1/by-name/logs         0640 root system
+/dev/block/platform/bootdevice/by-name/hob          0660 root radio
+/dev/block/platform/bootdevice/by-name/dhob         0660 root radio
+/dev/block/platform/bootdevice/by-name/clogo        0660 root oem_5004
+/dev/block/platform/bootdevice/by-name/cid          0660 root oem_5014
+/dev/block/platform/bootdevice/by-name/logs         0640 root system
