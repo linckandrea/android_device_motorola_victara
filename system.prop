@@ -16,7 +16,11 @@ vendor.audio_hal.period_size=192
 vendor.voice.path.for.pcm.voip=true
 
 ## Bluetooth
-vendor.qcom.bluetooth.soc=smd
+vendor.qcom.bluetooth.soc=pronto
+ro.qualcomm.bt.hci_transport=smd
+bluetooth.hfp.client=1
+ro.qualcomm.bluetooth.sap=false
+ro.bluetooth.hfp.ver=1.6
 
 ## Camera
 camera2.portability.force_api=1
