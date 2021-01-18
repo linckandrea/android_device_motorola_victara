@@ -21,3 +21,4 @@ genfscon sysfs /module/qpnp_charger/parameters           u:object_r:sysfs_bms:s0
 genfscon sysfs /module/msm_show_resume_irq/parameters u:object_r:sysfs_irq_debug:s0
 genfscon sysfs /module/dwc3_msm/parameters           u:object_r:sysfs_dwc_param:s0
 genfscon sysfs /module/hci_uart/parameters           u:object_r:sysfs_hci_param:s0
+genfscon sysfs /module/stm401/parameters             u:object_r:sysfs_stm401:s0
