@@ -307,7 +307,7 @@ vendor/lib/libtime_genoff.so
 vendor/lib/libxml.so
 
 # Sensors
-bin/stm401
+bin/stm401:vendor/bin/stm401
 etc/firmware/cy8c20247_24lkxi.hex:vendor/firmware/cy8c20247_24lkxi.hex
 etc/firmware/sensorhubfw.bin:vendor/firmware/sensorhubfw.bin
 etc/firmware/sensorhubfw_p0.bin:vendor/firmware/sensorhubfw_p0.bin
