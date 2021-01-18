@@ -333,19 +333,6 @@ service rmt_storage /system/vendor/bin/rmt_storage
 on property:ro.boot.emmc=true
     start rmt_storage
 
-on property:bluetooth.start_hci=true
-    start start_hci_filter
-
-on property:bluetooth.start_hci=false
-    stop start_hci_filter
-
-service start_hci_filter /system/bin/wcnss_filter
-    class late_start
-    user bluetooth
-    group bluetooth
-    disabled
-    writepid /dev/cpuset/system-background/tasks
-
 service config_bluetooth /vendor/bin/init.qcom.bt.sh "onboot"
     seclabel u:r:bluetooth_loader:s0
     user bluetooth
