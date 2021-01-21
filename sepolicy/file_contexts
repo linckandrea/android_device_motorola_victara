@@ -7,20 +7,33 @@
 /data/system/dropbox-add(/.*)?          u:object_r:adspd_data_file:s0
 /data/wapi_certificate(/.*)?            u:object_r:wapi_supplicant_data_file:s0
 
+# Device nodes
+/dev/stune(/.*)?                                            u:object_r:cgroup:s0
 /dev/bcm2079x-i2c                       u:object_r:nfc_device:s0
 /dev/block/platform/msm_sdcc.1/by-name/hob       u:object_r:hob_block_device:s0
 /dev/block/platform/msm_sdcc.1/by-name/dhob      u:object_r:hob_block_device:s0
 /dev/block/platform/msm_sdcc.1/by-name/frp       u:object_r:frp_block_device:s0
 /dev/block/platform/msm_sdcc.1/by-name/persist   u:object_r:persist_block_device:s0
+/dev/block/bootdevice/by-name/system                  u:object_r:system_block_device:s0
+/dev/block/bootdevice/by-name/userdata                u:object_r:userdata_block_device:s0
+/dev/block/bootdevice/by-name/cache                   u:object_r:cache_block_device:s0
+
 /dev/ttyHS3                             u:object_r:adsp_serial_device:s0
+/dev/ttyHS0                             u:object_r:hci_attach_dev:s0
+/dev/rfkill                             u:object_r:rfkill_device:s0
 /dev/socket/adspdsock                   u:object_r:adspd_data_file:s0
 /dev/socket/cutback                     u:object_r:rild_socket:s0
 /dev/stm401                             u:object_r:sensors_device:s0
 /dev/stm401_as                          u:object_r:sensors_device:s0
 /dev/stm401_ms                          u:object_r:sensors_device:s0
 
-/cache/pds                              u:object_r:pds_file:s0
+
+# firmware files
+#
+/firmware(/.*)?                         u:object_r:firmware_file:s0
+/fsg(/.*)?                              u:object_r:fsg_file:s0
 /pds(/.*)?                              u:object_r:pds_file:s0
+/cache/pds                              u:object_r:pds_file:s0
 
 /sys/devices/c55_ctrl                           u:object_r:sysfs_adspd:s0
 /sys/devices/fdb00000.qcom,kgsl-3d0/kgsl/kgsl-3d0/gpuclk        u:object_r:sysfs_thermal:s0
@@ -36,12 +49,18 @@
 /sys/power/autosleep                            u:object_r:sysfs_power:s0
 /sys/class/input(/.*)?                          u:object_r:sysfs_input:s0
 
-/(vendor|system/vendor)/bin/adspd                        u:object_r:adspd_exec:s0
+
+system/bin/clean_scratch_files                          u:object_r:clean_scratch_files:s0
+/(vendor|system/vendor)/bin/adspd                       u:object_r:adspd_exec:s0
 /(vendor|system/vendor)/bin/dbvc_atvc_property_set      u:object_r:atvc_exec:s0
 /(vendor|system/vendor)/bin/stm401                      u:object_r:stm401_exec:s0
 
 /(vendor|system/vendor)/bin/init.qcom.bt.sh   u:object_r:bluetooth_loader_exec:s0
+#Init mmi services
 /(vendor|system/vendor)/bin/init.mmi(.*)?     u:object_r:mmi_exec:s0
+/(vendor|system/vendor)/bin/init\.mmi\.touch\.sh              u:object_r:mmi-touch-sh_exec:s0
+/(vendor|system/vendor)/bin/init\.mmi\.boot\.sh               u:object_r:mmi-boot-sh_exec:s0
+/(vendor|system/vendor)/bin/init\.mmi\.radio\.sh               u:object_r:mmi-radio-sh_exec:s0
 
 # Gatekeeper
 /system/vendor/bin/hw/android\.hardware\.gatekeeper@1\.0-service\.software           u:object_r:hal_gatekeeper_default_exec:s0
@@ -57,9 +76,6 @@
 # DRM
 /(vendor|system/vendor)/bin/hw/android\.hardware\.drm@1\.2-service\.clearkey                u:object_r:hal_drm_clearkey_exec:s0
 
-# FSG
-/fsg(/.*)?                                                  u:object_r:fsg_file:s0
-
 # Lights
 /(vendor|system/vendor)/bin/hw/android\.hardware\.light@2\.0-service\.victara u:object_r:hal_light_default_exec:s0
 /sys/class/leds/lcd-backlight/brightness       u:object_r:sysfs_light:s0
@@ -68,5 +84,4 @@
 # Binaries
 /(vendor|system/vendor)/bin/timekeep                        u:object_r:timekeep_exec:s0
 
-# Device nodes
-/dev/stune(/.*)?                                            u:object_r:cgroup:s0
+

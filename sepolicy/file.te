@@ -10,6 +10,7 @@ type sysfs_input, sysfs_type, fs_type;
 type sysfs_light, dev_type, file_type, sysfs_type;
 type wapi_supplicant_data_file, file_type, data_file_type;
 type fsg_firmware_file, file_type, vendor_file_type, contextmount_type;
+type clean_scratch_files file_type, system_file;
 
 # Contexts for misc sysfs nodes
 type sysfs_virt_diag, sysfs_type, fs_type;
