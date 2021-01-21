@@ -70,7 +70,3 @@
 
 # Device nodes
 /dev/stune(/.*)?                                            u:object_r:cgroup:s0
-
-# Kernel modules loading script
-/(vendor|system/vendor)/bin/init\.insmod\.sh                                    u:object_r:init-insmod-sh_exec:s0
-/(vendor|system/vendor)/etc/init\.insmod\.cfg                                   u:object_r:init-insmod-sh_exec:s0
