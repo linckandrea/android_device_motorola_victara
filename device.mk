@@ -115,10 +115,10 @@ PRODUCT_PACKAGES += \
     android.hardware.gatekeeper@1.0-service.software
 
 # GPS
-PRODUCT_PACKAGES += \
-    android.hardware.gnss@1.0-impl.legacy \
-    android.hardware.gnss@1.0-service.legacy \
-    gps.msm8974
+#PRODUCT_PACKAGES += \
+#    android.hardware.gnss@1.0-impl.legacy \
+#    android.hardware.gnss@1.0-service.legacy \
+#    gps.msm8974
 
 # Health
 PRODUCT_PACKAGES += \
